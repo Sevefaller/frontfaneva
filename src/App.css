@@ -1,0 +1,83 @@
+.card:hover {
+
+  box-shadow: 5px 10px 20px 1px rgb(0, 0, 0, 0.253) !important;
+}
+p{
+  font-size: x-large;
+  font-weight: bold;
+  opacity: inherit;
+}
+h4{
+  font-weight:bold ;
+  
+  font-size:large ;
+  
+}
+th{
+  color: gray;
+  text-align: center 6;
+
+}
+.corps{
+  background-color:   #4ba87260;
+}
+
+.home{
+  background-image: url("./assets/img/agro.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+}
+.hometext{
+  box-sizing: content-box;
+  font-weight: bold;
+  box-sizing: border-box;
+  opacity: 10;
+  background-origin: padding-box;
+  border-radius: 10px;
+  border-style: double;
+  
+ 
+  background-color: transparent;
+  font-family: 'Times New Roman', Times, serif;
+  
+}
+
+.homehr{
+ color:whitesmoke
+
+  
+}
+
+.imagehome{
+  box-shadow: teal 10px 10px 10px;
+  border-radius: 10px;
+ }
+
+ .login{
+  background-image: url("./assets/img/front-view-plant-growing-from-golden-coins.jpg");
+ color: white;
+ font-family: 'Times New Roman', Times, serif;
+
+ height: 100vh; 
+ padding-top: 45px;
+ background-repeat: no-repeat;
+ background-position: center;
+  
+ 
+
+}
+.loginform{
+  border-style: ridge;
+  
+ 
+}
+
+
+
+
+#home{
+  background-image: url("./assets/img/avatar.jpg");
+}
+
+
