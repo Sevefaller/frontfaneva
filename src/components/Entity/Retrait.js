@@ -409,12 +409,7 @@ async function ajoutpersonne(data){
                               ></Form.Control>
                              
                             </Form.Group>
-                        
-                      
                             {date}
-
-
-                        
                         <br />
                         <br />
                         <button
