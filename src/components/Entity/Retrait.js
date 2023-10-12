@@ -69,7 +69,7 @@ function Retrait() {
   const handleShow2 = () => setShowsup(true);
 
   const [entite, setEntite] = useState("");
-  const [user, setUser] = useState(utilisateur.id);
+  
   const [bouttonpersonne, setBouttonpersonne] = useState("personne");
   const [numentite, setNumentite] = useState("");
   const [personne, setPersonne] = useState(false);
@@ -362,7 +362,7 @@ async function ajoutpersonne(data){
                     <Card.Body>
                       <Card.Title>
                         {" "}
-                        <h4 className="text-white text-center bg-info">Versements</h4>
+                        <h4 className="text-white text-center bg-info">Retrait</h4>
                         
 
                       </Card.Title>

@@ -25,7 +25,7 @@ import logo from "assets/img/reactlogo.png";
 function Sidebar({ color, image, routes }) {
   const location = useLocation();
   const utilisateur = JSON.parse(localStorage.getItem("user-info"));
-  const [user, setUser] = useState(utilisateur.type);
+  //const [user, setUser] = useState(utilisateur.type);
   const activeRoute = (routeName) => {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
@@ -51,7 +51,7 @@ function Sidebar({ color, image, routes }) {
       </div>
       <Nav>
 
-      {user == 'Utilisateur_simple' ? (
+      
 
 <>
 <li>
@@ -76,7 +76,7 @@ function Sidebar({ color, image, routes }) {
 
 </>
         
-               ) : (
+               
                
                 <>
                 <li>
@@ -98,7 +98,7 @@ function Sidebar({ color, image, routes }) {
                 </>
                
 
-               )}
+               
       
 
         

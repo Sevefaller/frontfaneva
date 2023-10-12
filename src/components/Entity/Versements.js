@@ -70,7 +70,7 @@ function Versements() {
   const handleShow2 = () => setShowsup(true);
 
   const [entite, setEntite] = useState("");
-  const [user, setUser] = useState(utilisateur.id);
+//  const [user, setUser] = useState(utilisateur.id);
   const [bouttonpersonne, setBouttonpersonne] = useState("personne");
   const [numentite, setNumentite] = useState("");
   const [personne, setPersonne] = useState(false);
