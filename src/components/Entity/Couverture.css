@@ -57,3 +57,13 @@ body {
 .bouton-3d:hover {
     transform: translateZ(30px);
 }
+body {
+    overflow-x: hidden;
+  }
+  
+  .Navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  

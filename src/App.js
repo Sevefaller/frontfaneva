@@ -9,6 +9,7 @@ import Versements from "./components/Entity/Versements";
 import Protection from "./components/Entity/Protected";
 import Retrait from "components/Entity/Retrait";
 import Couverture from "components/Entity/Couverture";
+import About from "components/Entity/About";
 
 import Historiqueclient from "./components/Entity/Historiqueclient";
 import Historiqueversement from "components/Entity/Historiqueversement";
@@ -67,6 +68,10 @@ function App() {
 
           <Route path="/couverture">
             <Couverture/>
+          </Route>
+
+          <Route path="/about">
+            <About/>
           </Route>
 
           <Route path="/">
