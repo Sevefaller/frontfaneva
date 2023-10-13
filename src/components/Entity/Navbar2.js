@@ -4,6 +4,8 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Dropdown from "react-bootstrap/Dropdown";
 import './Couverture.css';
+import { FaUserCircle, FaUserClock, FaEnvelope, FaSignInAlt } from "react-icons/fa";
+
 
 const Navbar2 = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -11,10 +13,37 @@ const Navbar2 = () => {
   const handleMenuClick = () => {
     setShowMenu(!showMenu);
   };
+  const navbarStyle = {
+    background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
+   
+    color: "white",
+  };
+
+  const dropStyle = {
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)", 
+    color: "white",
+    borderRadius: "40px 40px 0 0", // Augmentation de la taille des coins arrondis et bordure en demi-cercle
+    padding: "20px", // Ajout de l'espace intérieur pour augmenter la taille
+    fontSize: "18px", // Augmentation de la taille de la police
+  };
+  
+  
+  
+  const linkstyle = {
+    color: "white",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)", // Ombre de bordure avec une opacité de 0.3
+    transition: "color 0.3s ease-in-out, box-shadow 0.3s ease-in-out", // Ajout de la transition pour la couleur et l'ombre de bordure
+  };
+  
+  const logo = {
+    color: "white",
+     // Ajout de la transition pour la couleur et l'ombre de bordure
+  };
+  
 
   return (
-    <Navbar bg="light" expand="lg" sticky="top" className="Navbar">
-      <Navbar.Brand href="/">
+    <Navbar style={navbarStyle} expand="lg" sticky="top" className="Navbar">
+      <Navbar.Brand href="/" style={logo}>
         <img
           alt="Logo"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
@@ -27,7 +56,7 @@ const Navbar2 = () => {
       <Navbar.Collapse className="justify-content-center">
       
       <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle style={dropStyle} id="dropdown-basic">
         Organisation
       </Dropdown.Toggle>
 
@@ -39,7 +68,7 @@ const Navbar2 = () => {
     </Dropdown>
 
     <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle style={dropStyle} id="dropdown-basic">
         Secteur Activité
       </Dropdown.Toggle>
 
@@ -53,25 +82,24 @@ const Navbar2 = () => {
           
 
         <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
+      <Dropdown.Toggle style={dropStyle} id="dropdown-basic">
         Offres
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+        <Dropdown.Item href="#/action-1">Stage</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Emploi</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
 
       </Navbar.Collapse>
       <Navbar.Collapse className="justify-content-end">
       <Nav>
-        <Nav.Link key="home" href="/">
-          Inscription
+        <Nav.Link key="home" href="/" style={linkstyle}>
+        <FaEnvelope style={{ marginRight: '5px' }} /> Inscription
         </Nav.Link>
-        <Nav.Link key="about" href="/about">
-      Se connecter
+        <Nav.Link key="about" href="/about" style={linkstyle}>
+        <FaSignInAlt style={{ marginRight: '5px' }} />Se connecter
         </Nav.Link>
        
       </Nav>

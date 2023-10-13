@@ -10,10 +10,11 @@ import Protection from "./components/Entity/Protected";
 import Retrait from "components/Entity/Retrait";
 import Couverture from "components/Entity/Couverture";
 import About from "components/Entity/About";
-
+import Pagevide from "components/Entity/Pagevide";
 import Historiqueclient from "./components/Entity/Historiqueclient";
 import Historiqueversement from "components/Entity/Historiqueversement";
 import Historiqueretrait from "./components/Entity/Historiqueretrait";
+import Login2 from "components/Entity/Login2";
 
 
 
@@ -72,6 +73,14 @@ function App() {
 
           <Route path="/about">
             <About/>
+          </Route>
+
+          <Route path="/pagevide">
+            <Pagevide/>
+          </Route>
+
+          <Route path="/loginefianra">
+            <Login2/>
           </Route>
 
           <Route path="/">
