@@ -11,6 +11,7 @@ import { FaUserCircle, FaUserClock } from "react-icons/fa";
 import logo from './efianara.png';
 import Footer2 from "./Footer2";
 import TitreComponent from "./TitreComponent";
+import BreadcrumbExample from '../Reutilisable/BreadcrumbExample';
 
 const divStyle = {
     background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,148,153,1) 59%)",
@@ -60,11 +61,7 @@ const About = () => {
                                 <Card.Text>
                                     Description
                                 </Card.Text>
-
-
-
                                 <Card.Link href="#">Plus de detail </Card.Link>
-
                             </Card.Body>
                         </Card>
                     </Col>
@@ -105,11 +102,7 @@ const About = () => {
                             </Card.Body>
                         </Card>
                     </Col>
-
-
                 </Row>
-
-
             </Container>
             <Container fluid className="mt-4 mt-md-5 mb-4">
                 <Row>
