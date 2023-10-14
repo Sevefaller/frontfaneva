@@ -8,9 +8,9 @@
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
-    overflow: hidden;
-  }
-  
+    overflow: auto; /* Ajout de cette ligne */
+}
+
   .login-box {
     text-align: center;
     width: 300px;
@@ -20,7 +20,10 @@
     position: relative;
     overflow: hidden;
   }
-  
+  body {
+    color: black;
+    background: linear-gradient(45deg, #3498db, #ffffff);
+  }
   .login-box::before {
     content: "";
     position: absolute;
@@ -59,7 +62,7 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #ffffff;
+
     text-align: left;
   }
   
@@ -106,7 +109,7 @@
     background-color: #45a049;
   }
   
-@keyframes incline {
+  @keyframes incline {
     0% {
         transform: rotate(-5deg); /* Inclinaison initiale de -5 degrés */
     }

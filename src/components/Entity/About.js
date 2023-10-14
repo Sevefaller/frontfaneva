@@ -1,4 +1,4 @@
-
+// About.js
 import Navbar2 from "./Navbar2";
 import Footer from "./Footer2";
 import Container from "react-bootstrap/Container";

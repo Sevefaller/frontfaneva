@@ -15,10 +15,14 @@ import {
   Toast,
 } from "react-bootstrap";
 function Login() {
+
+  
   const [password, setPassword] = useState("");
   const [nom, setNom] = useState("");
   const [type, setType] = useState("Administrateur");
   const history = useHistory();
+
+
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
       history.push("./Clients");
