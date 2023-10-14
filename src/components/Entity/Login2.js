@@ -7,7 +7,7 @@ const Login2 = () => {
   return (
     <div className="login-container">
     <div className="login-box">
-      <img src={logo} alt="Logo" className="logo" />
+      <img src={logo} alt="Logo" className="logo animated-logo" />
       <form>
         <div className="form-group">
           <label htmlFor="username">Pseudo</label>

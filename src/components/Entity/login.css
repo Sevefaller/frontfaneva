@@ -106,3 +106,15 @@
     background-color: #45a049;
   }
   
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animated-logo {
+    animation: rotate 1s infinite linear; /* L'animation tourne chaque seconde de façon infinie */
+  }

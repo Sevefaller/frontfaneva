@@ -1,0 +1,36 @@
+.titre-container {
+    position: relative;
+  }
+  
+  .titre {
+    display: inline-block;
+    position: relative;
+    color: blanchedalmond;
+  }
+  
+  .titre::after {
+    content: "";
+    display: block;
+    width: 50px; /* Longueur de la ligne en bas du titre */
+    height: 2px; /* Épaisseur de la ligne */
+    background-color: #3498db; /* Couleur de la ligne */
+    position: absolute;
+    bottom: -10px; /* Position de la ligne par rapport au texte */
+    left: 50%; /* Centrer la ligne par rapport au texte */
+    transform: translateX(-50%);
+  }
+  
+  .titre-container h1 {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards; /* Animation de l'affichage */
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  

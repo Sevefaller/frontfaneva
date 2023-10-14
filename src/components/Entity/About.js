@@ -10,10 +10,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { FaUserCircle, FaUserClock } from "react-icons/fa";
 import logo from './efianara.png';
 import Footer2 from "./Footer2";
+import TitreComponent from "./TitreComponent";
 
 const divStyle = {
-    background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
-    color: 'white',
+    background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,148,153,1) 59%)",
+   // color: 'white',
     backgroundSize: 'cover', // Pour assurer que l'image de fond couvre tout l'élément
     backgroundPosition: 'center', // Pour centrer l'image de fond
     // Vous pouvez également ajouter d'autres styles ici selon vos besoins
@@ -24,10 +25,8 @@ const About = () => {
     return (
         <div className="About" style={divStyle}>
             <Navbar2 />
-            <Container className="mt-2 mt-md-2 mb-4">
-                <div className="text-center">
-                    <h1>Liste des Organisations</h1>
-                </div>
+            <TitreComponent />
+            <Container fluid className="mt-2 mt-md-2 mb-4">               
                 <Row>
                     <Col md={3}>
                         <Card>
@@ -112,7 +111,7 @@ const About = () => {
 
 
             </Container>
-            <Container className="mt-4 mt-md-5 mb-4">
+            <Container fluid className="mt-4 mt-md-5 mb-4">
                 <Row>
                     <Col md={3}>
                         <Card>
