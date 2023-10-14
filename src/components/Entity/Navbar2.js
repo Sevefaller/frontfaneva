@@ -15,6 +15,7 @@ const Navbar2 = () => {
   };
   const navbarStyle = {
     background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
+    
    
     color: "white",
   };
@@ -22,7 +23,7 @@ const Navbar2 = () => {
   const dropStyle = {
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)", 
     color: "white",
-    borderRadius: "40px 40px 0 0", // Augmentation de la taille des coins arrondis et bordure en demi-cercle
+    borderRadius: "40px 40px 40px 0", // Augmentation de la taille des coins arrondis et bordure en demi-cercle
     padding: "20px", // Ajout de l'espace intérieur pour augmenter la taille
     fontSize: "18px", // Augmentation de la taille de la police
   };
@@ -95,10 +96,10 @@ const Navbar2 = () => {
       </Navbar.Collapse>
       <Navbar.Collapse className="justify-content-end">
       <Nav>
-        <Nav.Link key="home" href="/" style={linkstyle}>
+        <Nav.Link key="home" href="/about" style={linkstyle}>
         <FaEnvelope style={{ marginRight: '5px' }} /> Inscription
         </Nav.Link>
-        <Nav.Link key="about" href="/about" style={linkstyle}>
+        <Nav.Link key="about" href="/loginefianra" style={linkstyle}>
         <FaSignInAlt style={{ marginRight: '5px' }} />Se connecter
         </Nav.Link>
        
