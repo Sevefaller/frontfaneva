@@ -15,6 +15,7 @@ import Historiqueclient from "./components/Entity/Historiqueclient";
 import Historiqueversement from "components/Entity/Historiqueversement";
 import Historiqueretrait from "./components/Entity/Historiqueretrait";
 import Login2 from "components/Entity/Login2";
+import Inscription from "components/Entity/Inscription";
 
 
 
@@ -81,6 +82,10 @@ function App() {
 
           <Route path="/loginefianra">
             <Login2/>
+          </Route>
+
+          <Route path="/Inscription">
+            <Inscription/>
           </Route>
 
           <Route path="/">
