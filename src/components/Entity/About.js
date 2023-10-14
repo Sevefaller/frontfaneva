@@ -11,6 +11,9 @@ import { FaUserCircle, FaUserClock } from "react-icons/fa";
 import logo from './efianara.png';
 import Footer2 from "./Footer2";
 import TitreComponent from "./TitreComponent";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import api from "./Update";
 
 const divStyle = {
     background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,148,153,1) 59%)",
@@ -21,7 +24,61 @@ const divStyle = {
   };
 
 
-const About = () => {
+  const About = () => {
+
+    const [lists, setList] = useState(null);
+    const [listAccepte, setListAccepte] = useState(null);
+    const [listOffre, setListOffre] = useState(null);
+    const [listSA, setListSA] = useState(null);
+
+    const getLists = async () => {
+        try {
+            // Replace with your Laravel API endpoint
+            const result = await axios.get('http://localhost:8000/api/list');
+            setList(result.data);
+        } catch (error) {
+            console.error('There was an error geting the data!', error);
+        }
+    };
+
+    const getListAccepte = async () => {
+        try {
+            // Replace with your Laravel API endpoint
+            const result = await axios.get('http://localhost:8000/api/listAccepte');
+            setListAccepte(result.data);
+        } catch (error) {
+            console.error('There was an error geting the data!', error);
+        }
+    };
+    
+    const getListOffre = async (id) => {
+        try {
+            // Replace with your Laravel API endpoint
+            const result = await axios.get(`http://localhost:8000/api/listOBE/${id}`);
+            setListOffre(result.data);
+        } catch (error) {
+            console.error('There was an error geting the data!', error);
+        }
+    };
+
+    const getListSA = async () => {
+        try {
+            // Replace with your Laravel API endpoint
+            const result = await axios.get('http://localhost:8000/api/listSA');
+            setListSA(result.data);
+        } catch (error) {
+            console.error('There was an error geting the data!', error);
+        }
+    };
+    
+    useEffect(() => {
+        getLists();
+        getListAccepte();
+        getListOffre();
+        getListSA();
+    }, []);
+
+
     return (
         <div className="About" style={divStyle}>
             <Navbar2 />
