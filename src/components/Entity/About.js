@@ -14,6 +14,7 @@ import TitreComponent from "./TitreComponent";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import api from "./Update";
+import BreadcrumbExample from '../Reutilisable/BreadcrumbExample';
 
 const divStyle = {
     background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,148,153,1) 59%)",
@@ -117,11 +118,7 @@ const divStyle = {
                                 <Card.Text>
                                     Description
                                 </Card.Text>
-
-
-
                                 <Card.Link href="#">Plus de detail </Card.Link>
-
                             </Card.Body>
                         </Card>
                     </Col>
@@ -162,11 +159,7 @@ const divStyle = {
                             </Card.Body>
                         </Card>
                     </Col>
-
-
                 </Row>
-
-
             </Container>
             <Container fluid className="mt-4 mt-md-5 mb-4">
                 <Row>

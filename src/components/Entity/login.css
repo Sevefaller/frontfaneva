@@ -106,15 +106,18 @@
     background-color: #45a049;
   }
   
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
+  @keyframes incline {
+    0% {
+        transform: rotate(-5deg); /* Inclinaison initiale de -5 degrés */
     }
-    to {
-      transform: rotate(360deg);
+    50% {
+        transform: rotate(5deg); /* Inclinaison maximale de 5 degrés à mi-chemin de l'animation */
     }
-  }
-  
-  .animated-logo {
-    animation: rotate 1s infinite linear; /* L'animation tourne chaque seconde de façon infinie */
-  }
+    100% {
+        transform: rotate(-5deg); /* Retour à l'inclinaison initiale à la fin de l'animation */
+    }
+}
+
+.animated-logo {
+    animation: incline 5s infinite linear; /* Animation de 5 secondes qui se répète indéfiniment en mode linéaire */
+}

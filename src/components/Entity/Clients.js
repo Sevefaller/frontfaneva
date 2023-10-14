@@ -10,7 +10,6 @@ import Button from '@mui/material/Button';
 
 //import Button from "@material-ui/core/Button";
 import Card from "react-bootstrap/Card";
-
 import Headers from "../Navbars/AdminNavbar"
 import Sidebar from "../Sidebar/Sidebar"
 import {
@@ -84,6 +83,7 @@ function Clients() {
   const [adressemodifier, setAdressemodifier] = useState("");
   const [personnemodifier, setPersonnemodifier] = useState("");
   const [loading, setLoading] = useState(true);
+
   async function ListeEntite() {
     let result = await fetch("http://localhost:8000/api/listeclients");
     result = await result.json();
