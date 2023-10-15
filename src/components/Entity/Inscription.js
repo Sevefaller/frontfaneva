@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import './inscription.css'; // Assurez-vous d'avoir ce fichier CSS pour les styles
 import logoi from './efianara.png';
 import Navbar2 from "./Navbar2";
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import axios from 'axios';
+import api from "./Update";
 
 const Inscription = () => {
 
@@ -38,7 +40,7 @@ const Inscription = () => {
     };
 
     async function signUp() {
-        e.preventDefault();
+        alert("ok");
     const formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
@@ -53,25 +55,20 @@ const Inscription = () => {
     formData.append("logo", logo);
     formData.append("imageStat", imageStat);
     formData.append("imageNif", imageNif);
-
-        let result = await fetch("http://localhost:8000/api/Registre", {
-          method: "Post",
-    
-          body: formData,
-        });
-        result = await result.json();
-        console.warn("result", result);
-        handleClose();
-        ListeUtilisateur();
+        console.log(formData);
+        api.addDemande(formData);
       }
 
     return (
         <div className="inscription">
-             <Container>
-             
+             <Container className="mt-2 mt-md-2 mb-4">
+             <Card>
+       <Container className="mt-2 mt-md-2 mb-4">
+
+       <Form>
       <Row>
         <Col md={6}>
-            <Form>
+           
               <Form.Group controlId="formType">
                 <Form.Label>Type organisation</Form.Label>
                 
@@ -110,14 +107,8 @@ const Inscription = () => {
                 <Form.Control type="date" value={dateCreation} onChange={(e) => setDateCreation(e.target.value)} />
               </Form.Group>
               {/* ... autres champs pour la première moitié du formulaire */}
-            </Form>
-          
         </Col>
-
         <Col md={6}>
-          
-        <Form>
-              
               <Form.Group controlId="formNumNif">
                 <Form.Label>Numéro NIF</Form.Label>
                 <Form.Control type="text" value={numNif} onChange={(e) => setNumNif(e.target.value)} />
@@ -141,14 +132,15 @@ const Inscription = () => {
               <Form.Group controlId="formImageNif">
                 <Form.Label>Image NIF</Form.Label>
                 <Form.Control type="file" onChange={handleImageNifChange} />
-              </Form.Group>
-            </Form>
+              </Form.Group> 
         </Col>
       </Row>
-      <div className="buttons">
-                <Button variant="primary" type="submit">Enregistrer</Button>
-                
-              </div>
+      <Form.Group controlId="formImageNif">
+      <Button variant="primary" onClick={() => signUp()} >Enregistrer</Button>
+              </Form.Group>
+      </Form>
+      </Container> 
+      </Card>   
     </Container>        
         </div>
     );
