@@ -8,8 +8,9 @@ import api from "./Update";
 
 const divStyle = {
     // Pour assurer que l'image de fond couvre tout l'élément
-    backgroundPosition: 'center',
     color: 'black',
+    background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
+    
     // Vous pouvez également ajouter d'autres styles ici selon vos besoins
 };
 const Inscription = () => {
@@ -58,7 +59,7 @@ const Inscription = () => {
           formData.append("logo_org", logo);
           formData.append("imgStat", imageStat);
           formData.append("imgNif", imageNif);
-          const response = await axios.post('http://localhost:8000/api/demande', formData);
+          const response = await axios.post('http://localhost:8000/api/ajoutclients', formData);
           console.log("Réponse de l'API :", response.data);
           // Traitez la réponse ici
       
