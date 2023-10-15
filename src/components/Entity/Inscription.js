@@ -42,20 +42,19 @@ const Inscription = () => {
     async function signUp() {
         alert("ok");
     const formData = new FormData();
-    formData.append("email", email);
+    formData.append("email_org", email);
     formData.append("password", password);
-    formData.append("nom", nom);
-    formData.append("type", type);
-    formData.append("phone", phone);
-    formData.append("site", site);
-    formData.append("dateCreation", dateCreation);
-    formData.append("numNif", numNif);
-    formData.append("numStat", numStat);
-    formData.append("statutLegal", statutLegal);
-    formData.append("logo", logo);
-    formData.append("imageStat", imageStat);
-    formData.append("imageNif", imageNif);
-        console.log(formData);
+    formData.append("nom_org", nom);
+    formData.append("type_org", type);
+    formData.append("telephone_org", phone);
+    formData.append("siteweb_org", site);
+    formData.append("date_creation", dateCreation);
+    formData.append("num_nif", numNif);
+    formData.append("num_stat", numStat);
+    formData.append("statut_legal_org", statutLegal);
+    formData.append("logo_org", logo);
+    formData.append("imgStat", imageStat);
+    formData.append("imgNif", imageNif);
         api.addDemande(formData);
       }
 
