@@ -27,7 +27,7 @@ const Inscription = () => {
     const [imageStat, setImageStat] = useState("");
     const [imageNif, setImageNif] = useState("");
 
-    
+
     const handleLogoChange = (e) => {
       setLogo(e.target.files[0]);
     };
@@ -59,9 +59,10 @@ const Inscription = () => {
     formData.append("imgNif", imageNif);
 
     let result = await fetch("http://localhost:8000/api/demande", {
-        method: "Post",
-        body: formData,
-      });
+  method: "POST", // Assurez-vous d'utiliser "POST" en majuscules
+  body: formData,
+});
+
 
 
       }
