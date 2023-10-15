@@ -39,6 +39,13 @@ const Inscription = () => {
       setImageNif(e.target.files[0]);
     };
 
+    const divStyle = {
+         // Pour assurer que l'image de fond couvre tout l'élément
+        backgroundPosition: 'center',
+        color : 'black',
+        // Vous pouvez également ajouter d'autres styles ici selon vos besoins
+      };
+
     async function signUp() {
     const formData = new FormData();
     formData.append("email_org", email);
@@ -54,13 +61,15 @@ const Inscription = () => {
     formData.append("logo_org", logo);
     formData.append("imgStat", imageStat);
     formData.append("imgNif", imageNif);
+
         api.addDemande(formData);
+
       }
 
     return (
         <div className="inscription">
              <Container className="mt-2 mt-md-2 mb-4">
-             <Card>
+             <Card style={divStyle}>
        <Container className="mt-2 mt-md-2 mb-4">
 
        <Form>

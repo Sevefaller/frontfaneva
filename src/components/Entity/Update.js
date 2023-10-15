@@ -3,30 +3,28 @@ const api = {};
 
 //* *************************** DEMANDE ************************************ */
 
-api.addDemande = (data) => {
-    return new Promise((resolve, reject) => {
-      fetch('http://localhost:8000/api/demande', {
+api.addDemande = async (data) => {
+    try {
+      const response = await fetch('http://localhost:8000/api/demande', {
         method: 'POST',
         body: data,
         headers: {
           'Accept': 'application/json',
           // Ajoutez d'autres en-têtes si nécessaire, par exemple, pour l'authentification
         }
-      })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then(data => {
-        resolve(data);
-      })
-      .catch(error => {
-        reject(error);
       });
-    });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok.');
+      }
+  
+      const responseData = await response.json();
+      return responseData;
+    } catch (error) {
+      throw error;
+    }
   };
+  
   
 
 //************************************************************************* */
