@@ -1,3 +1,10 @@
+
+
+body {
+    color: black;
+    background: linear-gradient(45deg, #3498db, #ffffff);
+  }
+  
 .login-container {
     display: flex;
     justify-content: center;
@@ -20,10 +27,7 @@
     position: relative;
     overflow: hidden;
   }
-  body {
-    color: black;
-    background: linear-gradient(45deg, #3498db, #ffffff);
-  }
+ 
   .login-box::before {
     content: "";
     position: absolute;
@@ -62,7 +66,7 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-
+color: #ffffff;
     text-align: left;
   }
   

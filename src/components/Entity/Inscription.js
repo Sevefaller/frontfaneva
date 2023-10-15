@@ -40,7 +40,6 @@ const Inscription = () => {
     };
 
     async function signUp() {
-        alert("ok");
     const formData = new FormData();
     formData.append("email_org", email);
     formData.append("password", password);
@@ -82,7 +81,7 @@ const Inscription = () => {
               <Form.Group controlId="formNom">
                 <Form.Label>Nom</Form.Label>
                 <Form.Control type="text" value={nom} onChange={(e) => setNom(e.target.value)} />
-                {nom}
+                
               </Form.Group>
 
               <Form.Group controlId="formPassword">
