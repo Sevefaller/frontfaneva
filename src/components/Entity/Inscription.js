@@ -13,7 +13,6 @@ const divStyle = {
    // Vous pouvez également ajouter d'autres styles ici selon vos besoins
  };
 const Inscription = () => {
-
     const [password, setPassword] = useState("");
     const [nom, setNom] = useState("");
     const [type, setType] = useState("1");
@@ -28,6 +27,7 @@ const Inscription = () => {
     const [imageStat, setImageStat] = useState("");
     const [imageNif, setImageNif] = useState("");
 
+    
     const handleLogoChange = (e) => {
       setLogo(e.target.files[0]);
     };
@@ -57,11 +57,13 @@ const Inscription = () => {
     formData.append("logo_org", logo);
     formData.append("imgStat", imageStat);
     formData.append("imgNif", imageNif);
-    
+
     let result = await fetch("http://localhost:8000/api/demande", {
         method: "Post",
         body: formData,
       });
+
+
       }
 
     return (
@@ -141,7 +143,7 @@ const Inscription = () => {
         </Col>
       </Row>
       <Form.Group controlId="formImageNif">
-      <Button variant="primary" onClick={() => signUp()} >Enregistrer</Button>
+      <Button variant="primary"onClick={signUp} >Enregistrer</Button>
               </Form.Group>
       </Form>
       </Container> 

@@ -108,7 +108,6 @@ function Clients() {
    
     let result = await fetch("http://localhost:8000/api/ajoutclients", {
       method: "Post",
-
       body: formData,
     });
 
