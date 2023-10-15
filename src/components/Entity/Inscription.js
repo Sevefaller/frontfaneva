@@ -6,6 +6,12 @@ import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import axios from 'axios';
 import api from "./Update";
 
+const divStyle = {
+    // Pour assurer que l'image de fond couvre tout l'élément
+   backgroundPosition: 'center',
+   color : 'black',
+   // Vous pouvez également ajouter d'autres styles ici selon vos besoins
+ };
 const Inscription = () => {
 
     const [password, setPassword] = useState("");
@@ -13,19 +19,14 @@ const Inscription = () => {
     const [type, setType] = useState("1");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
-
     const [site, setSite] = useState("");
     const [dateCreation, setDateCreation] = useState("");
     const [numNif, setNumNif] = useState("");
     const [numStat, setNumStat] = useState("");
     const [statutLegal, setStatutLegal] = useState("");
-   
-
     const [logo, setLogo] = useState("");
     const [imageStat, setImageStat] = useState("");
     const [imageNif, setImageNif] = useState("");
-  
-
 
     const handleLogoChange = (e) => {
       setLogo(e.target.files[0]);
@@ -39,12 +40,7 @@ const Inscription = () => {
       setImageNif(e.target.files[0]);
     };
 
-    const divStyle = {
-         // Pour assurer que l'image de fond couvre tout l'élément
-        backgroundPosition: 'center',
-        color : 'black',
-        // Vous pouvez également ajouter d'autres styles ici selon vos besoins
-      };
+    
 
     async function signUp() {
     const formData = new FormData();
@@ -61,9 +57,11 @@ const Inscription = () => {
     formData.append("logo_org", logo);
     formData.append("imgStat", imageStat);
     formData.append("imgNif", imageNif);
-
-        api.addDemande(formData);
-
+    
+    let result = await fetch("http://localhost:8000/api/demande", {
+        method: "Post",
+        body: formData,
+      });
       }
 
     return (
