@@ -96,7 +96,7 @@ const Navbar2 = () => {
       </Navbar.Collapse>
       <Navbar.Collapse className="justify-content-end">
       <Nav>
-        <Nav.Link key="home" href="/about" style={linkstyle}>
+        <Nav.Link key="home" href="/inscription" style={linkstyle}>
         <FaEnvelope style={{ marginRight: '5px' }} /> Inscription
         </Nav.Link>
         <Nav.Link key="about" href="/loginefianra" style={linkstyle}>

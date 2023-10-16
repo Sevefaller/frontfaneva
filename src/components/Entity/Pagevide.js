@@ -14,7 +14,7 @@ const Pagevide = () => {
     <div className="About">
       <Navbar2 />
       <Container fluid className="mt-4 mt-md-5">
-        
+         
       </Container>
     </div>
   );

@@ -124,3 +124,10 @@ color: #ffffff;
 .animated-logo {
     animation: incline 5s infinite linear; /* Animation de 5 secondes qui se répète indéfiniment en mode linéaire */
 }
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+  /* Espacement entre les boutons */
+}
