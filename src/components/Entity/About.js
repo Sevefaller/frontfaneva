@@ -9,6 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import { FaUserCircle, FaUserClock } from "react-icons/fa";
 import logo from './efianara.png';
 import Footer2 from "./Footer2";
+import Login2 from "./Login2";
 import TitreComponent from "./TitreComponent";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
