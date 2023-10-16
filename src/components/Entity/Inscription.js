@@ -8,8 +8,9 @@ import api from "./Update";
 
 const divStyle = {
     // Pour assurer que l'image de fond couvre tout l'élément
-    backgroundPosition: 'center',
     color: 'black',
+    background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
+    
     // Vous pouvez également ajouter d'autres styles ici selon vos besoins
 };
 const Inscription = () => {
