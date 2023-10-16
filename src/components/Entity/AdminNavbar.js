@@ -80,7 +80,7 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 data-toggle="dropdown"
-                href="#pablo"
+                
                 onClick={(e) => e.preventDefault()}
                 className="m-0"
               >
@@ -124,7 +124,7 @@ function Header() {
                   </NavLink>
                 </Dropdown.Item>
                 <Dropdown.Item
-                  href="#pablo"
+                  
                   onClick={logout}
                   className="m-0" >
                   Déconnection

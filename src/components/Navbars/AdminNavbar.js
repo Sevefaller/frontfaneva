@@ -42,7 +42,7 @@ function Header() {
   
   function logout() {
     localStorage.clear();
-    history.push("/login");
+    history.push("/about");
    
   }
 
@@ -85,8 +85,8 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 className="m-0 text-success text-center"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
+                
+              
               >
                 <i className="nc-icon nc-zoom-split"></i>
                 <span className="d-lg-block" style={{fontSize:25}}><b>E fianara</b></span>
@@ -109,15 +109,15 @@ function Header() {
               </Dropdown.Toggle>
               <Dropdown.Menu aria-labelledby="navbarDropdownMenuLink">
                 <Dropdown.Item
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
+                  
+                  
                 >
                   <NavLink to="/versments"  className="m-0">
                   Profil
                   </NavLink>
                 </Dropdown.Item>
                 <Dropdown.Item
-                  href="#pablo"
+                  
                   onClick={logout}
                   className="m-0" >
                   Déconnection
