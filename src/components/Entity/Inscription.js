@@ -77,14 +77,11 @@ const Inscription = () => {
             <Container className="mt-2 mt-md-2 mb-4">
                 <Card style={divStyle}>
                     <Container className="mt-2 mt-md-2 mb-4">
-
                         <Form>
                             <Row>
                                 <Col md={6}>
-
                                     <Form.Group controlId="formType">
                                         <Form.Label>Type organisation</Form.Label>
-
                                         <Form.Control as="select" value={type} onChange={(e) => setType(e.target.value)}>
                                             <option value="1">Association</option>
                                             <option value="2">ONG</option>

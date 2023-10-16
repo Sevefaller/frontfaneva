@@ -16,8 +16,9 @@ import Historiqueversement from "components/Entity/Historiqueversement";
 import Historiqueretrait from "./components/Entity/Historiqueretrait";
 import Login2 from "components/Entity/Login2";
 import Inscription from "components/Entity/Inscription";
-
-
+import Utilisateurlist from "components/Entity/Utilisateurlist";
+import UtilisateurDemande from "components/Entity/UtilisateurDemande";
+import Main from "./components/Entity/Main";
 
 
 //import Ajout_Lieux from "./components/Ajout_Lieux";
@@ -86,6 +87,19 @@ function App() {
 
           <Route path="/Inscription">
             <Inscription/>
+          </Route>
+
+          <Route path="/pagevideadmin">
+            <Main/>
+          </Route>
+
+          <Route path="/listeUtilisateur">
+            <Utilisateurlist/>
+          </Route>
+
+
+          <Route path="/listeDemandeUtilisateur">
+            <UtilisateurDemande/>
           </Route>
 
           <Route path="/">

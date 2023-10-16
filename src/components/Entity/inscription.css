@@ -1,10 +1,6 @@
 
 
-body {
-    color: black;
-    background: linear-gradient(45deg, #3498db, #ffffff);
-  }
-  
+
 .login-container {
     display: flex;
     justify-content: center;
