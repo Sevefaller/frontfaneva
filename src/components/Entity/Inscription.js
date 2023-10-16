@@ -17,6 +17,7 @@ const Inscription = () => {
     const [password, setPassword] = useState("");
     const [nom, setNom] = useState("");
     const [type, setType] = useState("1");
+    const [sectAct, setSectAct] = useState("1");
     const [phone, setPhone] = useState("");
     const [email, setEmail] = useState("");
     const [site, setSite] = useState("");
@@ -50,6 +51,7 @@ const Inscription = () => {
           formData.append("password", password);
           formData.append("nom_org", nom);
           formData.append("type_org", type);
+          formData.append("sect_act", sectAct);
           formData.append("telephone_org", phone);
           formData.append("siteweb_org", site);
           formData.append("date_creation", dateCreation);
@@ -84,7 +86,7 @@ const Inscription = () => {
 
                                     <Form.Group controlId="formType">
                                         <Form.Label>Type organisation</Form.Label>
-                                          <h6>Type organisation</h6>
+                                       
                                      
                                         <Form.Control as="select" value={type} onChange={(e) => setType(e.target.value)}>
                                             <option value="1">Association</option>
@@ -93,62 +95,85 @@ const Inscription = () => {
                                             {type}
                                         </Form.Control>
                                     </Form.Group>
+                                    <Form.Group controlId="formsectAct">
+                                        <Form.Label>Secteur Activité</Form.Label>
+                                        <Form.Control as="select" value={sectAct} onChange={(e) => setSectAct(e.target.value)}>
+                                            <option value="1">Services financières</option>
+                                            <option value="2">Technologie de l'information</option>
+                                            <option value="3">Education</option>
+                                            <option value="4">Fabrication</option>
+                                            <option value="5">Services professionnels</option>
+                                            <option value="6">Energie</option>
+                                            <option value="7">Immobilier</option>
+                                            <option value="8">Transport et logistique</option>
+                                            <option value="9">Restauration</option>
+                                            <option value="10">Divertissement et médias</option>
+                                            <option value="11">Agriculture</option>
+                                            <option value="12">Environnement</option>
+                                            <option value="13">Tourisme et hôtellerie</option>
+                                            <option value="14">Télécommunications</option>
+                                            <option value="15">Mode et textile</option>
+                                            <option value="16">Informatique</option>
+                                            <option value="17">Social</option>
+                                            {sectAct}
+                                        </Form.Control>
+                                    </Form.Group>
 
                     <Form.Group controlId="formNom">
                       
                       <Form.Label>Nom organisation</Form.Label>
-                      <h6>Nom</h6>
+                     
                                         <Form.Control type="text" value={nom} onChange={(e) => setNom(e.target.value)} />
 
                                     </Form.Group>
 
                                     <Form.Group controlId="formPassword">
-                                        <Form.Label>Mot de passe</Form.Label><h6>Mot de passe</h6>
+                                        <Form.Label>Mot de passe</Form.Label>
                                         <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                                     </Form.Group>
                                     <Form.Group controlId="formPhone">
-                                        <Form.Label>Téléphone</Form.Label><h6>Téléphone organisation</h6>
+                                        <Form.Label>Téléphone</Form.Label>
                                         <Form.Control type="number" value={phone} onChange={(e) => setPhone(e.target.value)} />
                                     </Form.Group>
                                     <Form.Group controlId="formEmail">
-                                        <Form.Label>Email</Form.Label><h6>Email organisation</h6>
+                                        <Form.Label>Email</Form.Label>
                                         <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
                                     </Form.Group>
                                     <Form.Group controlId="formSite">
-                                        <Form.Label>Site</Form.Label><h6>Site web ou Réseaux sociaux</h6>
+                                        <Form.Label>Site ou Réseaux sociaux</Form.Label>
                                         <Form.Control type="text" value={site} onChange={(e) => setSite(e.target.value)} />
                                     </Form.Group>
-                                    <Form.Group controlId="formDateCreation">
-                                        <Form.Label>Date de Création</Form.Label><h6>Date de Création</h6>
-                                        <Form.Control type="date" value={dateCreation} onChange={(e) => setDateCreation(e.target.value)} />
-                                    </Form.Group>
+                                    
                                     {/* ... autres champs pour la première moitié du formulaire */}
                                 </Col>
-                                <Col md={6}>
+                  <Col md={6}>
+                    <Form.Group controlId="formDateCreation">
+                                        <Form.Label>Date de Création</Form.Label>
+                                        <Form.Control type="date" value={dateCreation} onChange={(e) => setDateCreation(e.target.value)} />
+                                    </Form.Group>
                                     <Form.Group controlId="formNumNif">
-                                        <Form.Label>Numéro NIF</Form.Label><h6>Numéro NIF</h6>
+                                        <Form.Label>Numéro NIF</Form.Label>
                                         <Form.Control type="text" value={numNif} onChange={(e) => setNumNif(e.target.value)} />
                                     </Form.Group>
                                     <Form.Group controlId="formNumStat">
-                                        <Form.Label>Numéro Statistique</Form.Label><h6>Numéro Statistique</h6>
+                                        <Form.Label>Numéro Statistique</Form.Label>
                                         <Form.Control type="text" value={numStat} onChange={(e) => setNumStat(e.target.value)} />
                                     </Form.Group>
                                     <Form.Group controlId="formStatutLegal">
-  <Form.Label>Statut Légal</Form.Label>
-  <Form.Label as="h6">Statut Légal</Form.Label>
-  <Form.Control type="text" value={statutLegal} onChange={(e) => setStatutLegal(e.target.value)} />
-</Form.Group>
+                                        <Form.Label>Statut Légal</Form.Label>
+                                        <Form.Control type="text" value={statutLegal} onChange={(e) => setStatutLegal(e.target.value)} />
+                                    </Form.Group>
 
                                     <Form.Group controlId="formLogo">
-                                        <Form.Label>Logo</Form.Label><h6>Logo</h6>
+                                        <Form.Label>Logo</Form.Label>
                                         <Form.Control type="file" onChange={handleLogoChange} />
                                     </Form.Group>
                                     <Form.Group controlId="formImageStat">
-                                        <Form.Label>Image Statistique</Form.Label><h6>Image Statistique</h6>
+                                        <Form.Label>Image Statistique</Form.Label>
                                         <Form.Control type="file" onChange={handleImageStatChange} />
                                     </Form.Group>
                                     <Form.Group controlId="formImageNif">
-                                        <Form.Label>Image NIF</Form.Label><h6>Image NIF</h6>
+                                        <Form.Label>Image NIF</Form.Label>
                                         <Form.Control type="file" onChange={handleImageNifChange} />
                                     </Form.Group>
                                 </Col>
