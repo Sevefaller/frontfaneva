@@ -15,10 +15,14 @@ const divStyle = {
 };
 const Inscription = () => {
     const [password, setPassword] = useState("");
+    const [phone, setPhone] = useState("");
     const [nom, setNom] = useState("");
     const [type, setType] = useState("1");
     const [sectAct, setSectAct] = useState("1");
-    const [phone, setPhone] = useState("");
+    const [province, setProvince] = useState("");
+    const [region, setRegion] = useState("");
+    const [adresse, setAdresse] = useState("");
+    const [codePostal, setCodePostal] = useState("");
     const [email, setEmail] = useState("");
     const [site, setSite] = useState("");
     const [dateCreation, setDateCreation] = useState("");
@@ -52,6 +56,10 @@ const Inscription = () => {
           formData.append("nom_org", nom);
           formData.append("type_org", type);
           formData.append("sect_act", sectAct);
+          formData.append("province", province);
+          formData.append("region", region);
+          formData.append("adresse", adresse);
+          formData.append("code_postal", code_postal);
           formData.append("telephone_org", phone);
           formData.append("siteweb_org", site);
           formData.append("date_creation", dateCreation);
@@ -144,9 +152,63 @@ const Inscription = () => {
                                         <Form.Control type="text" value={site} onChange={(e) => setSite(e.target.value)} />
                                     </Form.Group>
                                     
+                                            <Form.Group controlId="formProvince">
+                                        <Form.Label>Province</Form.Label>
+                                        <Form.Control as="select" value={province} onChange={(e) => setProvince(e.target.value)}>
+                                            <option value="1">Fianarantsoa</option>
+                                            {province}
+                                        </Form.Control>
+                    </Form.Group>
+                    <Form.Group controlId="formRegion">
+                                        <Form.Label>Région</Form.Label>
+                                        <Form.Control as="select" value={region} onChange={(e) => setRegion(e.target.value)}>
+                                            <option value="1">Amoron'i Mania</option>
+                                            <option value="2">Haute Matsiatra</option>
+                                            <option value="3">Vatovavy</option>
+                                            <option value="4">Fitovinany</option>
+                                            <option value="5">Atsimo-Atsinanana</option>
+                                            <option value="6">Ihorombe</option>
+                                            {region}
+                                        </Form.Control>
+                                    </Form.Group>
                                     {/* ... autres champs pour la première moitié du formulaire */}
-                                </Col>
+                  </Col>
+                  
                   <Col md={6}>
+                           <Form.Group controlId="formAdresse">
+                                        <Form.Label>Adresse</Form.Label>
+                                        <Form.Control type="text" value={adresse} onChange={(e) => setAdresse(e.target.value)} />
+                    </Form.Group>
+                     <Form.Group controlId="formCodePostal">
+                                        <Form.Label>Code Postal</Form.Label>
+                                        <Form.Control as="select" value={codePostal} onChange={(e) => setCodePostal(e.target.value)}>
+                                            <option value="1">301</option>
+                                            <option value="2">302</option>
+                                            <option value="3">303</option>
+                                            <option value="4">303</option>
+                                            <option value="5">304</option>
+                                            <option value="6">305</option>
+                                            <option value="6">306</option>
+                                            <option value="6">307</option>
+                                            <option value="6">308</option>
+                                            <option value="6">309</option>
+                                            <option value="6">310</option>
+                                            <option value="6">311</option>
+                                            <option value="6">312</option>
+                                            <option value="6">313</option>
+                                            <option value="6">314</option>
+                                            <option value="6">315</option>
+                                            <option value="6">316</option>
+                                            <option value="6">317</option>
+                                            <option value="6">318</option>
+                                            <option value="6">319</option>
+                                            <option value="6">320</option>
+                                            <option value="6">321</option>
+                                            <option value="6">322</option>
+                                            <option value="6">323</option>
+                                            {codePostal}
+                                        </Form.Control>
+                                    </Form.Group>
                     <Form.Group controlId="formDateCreation">
                                         <Form.Label>Date de Création</Form.Label>
                                         <Form.Control type="date" value={dateCreation} onChange={(e) => setDateCreation(e.target.value)} />
@@ -174,7 +236,7 @@ const Inscription = () => {
                                     </Form.Group>
                                     <Form.Group controlId="formImageNif">
                                         <Form.Label>Image NIF</Form.Label>
-                                        <Form.Control type="file" onChange={handleImageNifChange} />
+                                        <Form.Control type="file" onChange={handleImageNifChange}  placeholder="Veuillez ajouter ceci le photo de votre NIF"/>
                                     </Form.Group>
                                 </Col>
                             </Row>
