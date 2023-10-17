@@ -42,7 +42,7 @@ function Header() {
   
   function logout() {
     localStorage.clear();
-    history.push("/login");
+    history.push("/about");
    
   }
 
@@ -80,26 +80,16 @@ function Header() {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav mr-auto" navbar>
-            <Nav.Item>
-              <Nav.Link
-                data-toggle="dropdown"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-                className="m-0"
-              >
-                <i className="nc-icon nc-palette"></i>
-                <span className="d-lg-none ml-1">Dashboard</span>
-              </Nav.Link>
-            </Nav.Item>
+            
            
             <Nav.Item>
               <Nav.Link
                 className="m-0 text-success text-center"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
+                
+              
               >
                 <i className="nc-icon nc-zoom-split"></i>
-                <span className="d-lg-block" style={{fontSize:25}}><b>GESTION BANCAIRE</b></span>
+                <span className="d-lg-block" style={{fontSize:25}}><b>E fianara</b></span>
               </Nav.Link>
             </Nav.Item>
           </Nav>
@@ -119,15 +109,15 @@ function Header() {
               </Dropdown.Toggle>
               <Dropdown.Menu aria-labelledby="navbarDropdownMenuLink">
                 <Dropdown.Item
-                  href="#pablo"
-                  onClick={(e) => e.preventDefault()}
+                  
+                  
                 >
                   <NavLink to="/versments"  className="m-0">
                   Profil
                   </NavLink>
                 </Dropdown.Item>
                 <Dropdown.Item
-                  href="#pablo"
+                  
                   onClick={logout}
                   className="m-0" >
                   Déconnection

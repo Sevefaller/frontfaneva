@@ -10,7 +10,7 @@ const divStyle = {
     // Pour assurer que l'image de fond couvre tout l'élément
     color: 'black',
     background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
-    
+
     // Vous pouvez également ajouter d'autres styles ici selon vos besoins
 };
 const Inscription = () => {
@@ -74,28 +74,24 @@ const Inscription = () => {
           // Traitez la réponse ici
       
         } catch (error) {
-          console.error("Erreur lors de la requête :", error);
-          // Gérez les erreurs ici
+            console.error("Erreur lors de la requête :", error);
+            // Gérez les erreurs ici
         }
-      }
+    }
 
 
-    
+
 
     return (
         <div className="inscription">
             <Container className="mt-2 mt-md-2 mb-4">
                 <Card style={divStyle}>
                     <Container className="mt-2 mt-md-2 mb-4">
-
                         <Form>
                             <Row>
                                 <Col md={6}>
-
                                     <Form.Group controlId="formType">
                                         <Form.Label>Type organisation</Form.Label>
-                                       
-                                     
                                         <Form.Control as="select" value={type} onChange={(e) => setType(e.target.value)}>
                                             <option value="1">Association</option>
                                             <option value="2">ONG</option>
@@ -127,10 +123,10 @@ const Inscription = () => {
                                         </Form.Control>
                                     </Form.Group>
 
-                    <Form.Group controlId="formNom">
-                      
-                      <Form.Label>Nom organisation</Form.Label>
-                     
+                                    <Form.Group controlId="formNom">
+
+                                        <Form.Label>Nom organisation</Form.Label>
+
                                         <Form.Control type="text" value={nom} onChange={(e) => setNom(e.target.value)} />
 
                                     </Form.Group>
@@ -243,7 +239,7 @@ const Inscription = () => {
                             <Form.Group controlId="formImageNif" className="button-group">
                                 <Button variant="primary" onClick={signUp} >Enregistrer</Button>
                                 <Button href="about" >Retour</Button>
-                                
+
                             </Form.Group>
                         </Form>
                     </Container>

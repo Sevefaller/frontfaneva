@@ -46,8 +46,7 @@ function Sidebar({ color, image, routes }) {
           
         </a>
         <a className="simple-text">
-          BANK
-        </a>
+          E-fianara    </a>
       </div>
       <Nav>
 
@@ -55,47 +54,24 @@ function Sidebar({ color, image, routes }) {
 
 <>
 <li>
-        <Link to="/clients" className="nav-link">
+        <Link to="/listeUtilisateur" className="nav-link">
           
-         <p>Clients</p>
+         <p>Lise des utilisateurs</p>
         </Link>
       </li>
       <li>
-        <Link to="/versements" className="nav-link">
+        <Link to="/listeDemandeUtilisateur" className="nav-link">
           
-         <p> Versements</p>
+         <p> Demande en attente</p>
         </Link>
       </li>
 
-      <li>
-        <NavLink to="/retraits" className="nav-link">
-          
-         <p> Retrait</p>
-        </NavLink>
-      </li>
-
+     
 </>
         
                
                
-                <>
-                <li>
-                <NavLink to="/historiqueclient" className="nav-link">
-                  
-                 <p> Historique sur les clients</p>
-                </NavLink>
-              </li><li>
-                <NavLink to="/historiqueversement" className="nav-link">
-                  
-                 <p>Historique sur les versements </p>
-                </NavLink>
-              </li><li>
-                <NavLink to="/historiqueretrait" className="nav-link">
-                  
-                 <p>Historique sur les retraits </p>
-                </NavLink>
-              </li>
-                </>
+                
                
 
                
