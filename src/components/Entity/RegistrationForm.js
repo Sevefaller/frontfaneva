@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
-import { Typography, Stepper, Step, StepLabel, Button, Paper } from '@mui/material';
+import {Input, Typography, Stepper, Step, StepLabel, Button, Paper, FormControl, InputLabel, TextField, MenuItem, FormHelperText } from '@mui/material';
+import Select from '@mui/material/Select';
 import axios from 'axios';
-
+import logo from './efianara.png';
+import './Registre.css';
 const steps = ['Étape 1', 'Étape 2', 'Étape 3'];
 
 const RegistrationForm = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+    nom: '',
     type: '1',
     sectAct: '1',
-    nom: '',
-    password: '',
     phone: '',
-    email: '',
     site: '',
     dateCreation: '',
     numNif: '',
@@ -23,6 +25,13 @@ const RegistrationForm = () => {
     imageStat: null,
     imageNif: null,
   });
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    const name = e.target.name;
+
+    setFormData({ ...formData, [name]: file });
+  };
 
   const handleNext = () => {
     setActiveStep((prevStep) => prevStep + 1);
@@ -50,19 +59,18 @@ const RegistrationForm = () => {
       formDataToSend.append("imgStat", formData.imageStat);
       formDataToSend.append("imgNif", formData.imageNif);
       console.log(formDataToSend);
-
+      // ... ajouter les autres champs ici
       const response = await axios.post('http://127.0.0.1:8000/api/demande', formDataToSend);
       console.log("Réponse de l'API :", response.data);
-      // Traitez la réponse ici
-
     } catch (error) {
       console.error("Erreur lors de la requête :", error);
-      // ok
     }
   };
 
   return (
-    <Paper elevation={3} style={{ padding: '20px', maxWidth: '400px', margin: '0 auto' }}>
+    <Paper elevation={3} style={{ padding: '20px', maxWidth: '400px', margin: '0 auto', marginTop: '40px' }}>
+      <img src={logo} alt="Logo" className="inscription-image" />
+      <Typography variant="h6" className="inscription-title">Inscription</Typography>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
@@ -70,18 +78,31 @@ const RegistrationForm = () => {
           </Step>
         ))}
       </Stepper>
+      <div>
+      
+      
+      
+      {/* ... rest du composant */}
+    </div>
       <div style={{ marginTop: '20px' }}>
         {activeStep === 0 && <StepOne formData={formData} setFormData={setFormData} />}
-        {activeStep === 1 && <StepTwo formData={formData} setFormData={setFormData} />}
-        {activeStep === 2 && <StepThree formData={formData} setFormData={setFormData} signUp={signUp} />}
+        {activeStep === 1 && <StepTwo formData={formData} setFormData={setFormData} handleFileChange={handleFileChange} />}
+        {activeStep === 2 && <StepThree formData={formData} setFormData={setFormData} handleFileChange={handleFileChange} />}
       </div>
       <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between' }}>
         <Button variant="contained" disabled={activeStep === 0} onClick={handleBack}>
           Précédent
         </Button>
-        <Button variant="contained" onClick={handleNext} disabled={activeStep === 2}>
-          {activeStep === 2 ? 'Enregistrer' : 'Suivant'}
-        </Button>
+        {activeStep === 2 && (
+          <Button variant="contained" onClick={signUp}>
+            Enregistrer
+          </Button>
+        )}
+        {activeStep !== 2 && (
+          <Button variant="contained" onClick={handleNext}>
+            Suivant
+          </Button>
+        )}
       </div>
     </Paper>
   );
@@ -94,10 +115,84 @@ const StepOne = ({ formData, setFormData }) => {
 
   return (
     <div>
-      <Typography variant="h6">Étape 1</Typography>
-      {/* Vos champs pour l'étape 1 */}
-      {/* Exemple de champ : */}
-      {/* <input type="text" name="nom" value={formData.nom} onChange={handleChange} /> */}
+      
+      <FormControl fullWidth margin="normal">
+        
+        <TextField 
+          id="email" 
+          name="email" 
+          type="email" 
+          label = "Email"
+          value={formData.email} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+
+
+      <FormControl fullWidth margin="normal">
+        
+        <TextField 
+          id="password" 
+          name="password" 
+          type="password" 
+          label = "Mot de passe"
+          value={formData.password} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+        
+        <TextField 
+          id="nom" 
+          name="nom" 
+          type="text" 
+          label = "Nom"
+          value={formData.nom} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+
+     
+
+
+
+      <FormControl fullWidth margin="normal">
+      <FormHelperText>Type d'entreprise</FormHelperText>
+        <Select
+          id="type"
+          label = "Type organisation"
+          name="type"
+          value={formData.type}
+          
+          onChange={handleChange}
+          fullWidth
+        >
+         
+          <MenuItem value="1">Association</MenuItem>
+          <MenuItem value="2">ONG</MenuItem>
+          <MenuItem value="3">Entreprise</MenuItem>
+        </Select>
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        <FormHelperText>Secteur Activité</FormHelperText>
+        <Select
+          id="sectAct"
+          name="sectAct"
+          label = "Type organisation"
+          value={formData.sectAct}
+          onChange={handleChange}
+          fullWidth
+        >
+          <MenuItem value="1">Services financières</MenuItem>
+          <MenuItem value="2">Technologie de l'information</MenuItem>
+          <MenuItem value="3">Education</MenuItem>
+          {/* Ajoutez d'autres options ici */}
+        </Select>
+      </FormControl>
     </div>
   );
 };
@@ -109,28 +204,123 @@ const StepTwo = ({ formData, setFormData }) => {
 
   return (
     <div>
-      <Typography variant="h6">Étape 2</Typography>
-      {/* Vos champs pour l'étape 2 */}
+     
+      <FormControl fullWidth margin="normal">
+       
+        <TextField 
+          id="phone" 
+          name="phone" 
+          type="number" 
+          label = "Numéro téléphone"
+          value={formData.phone} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+        <TextField 
+          id="site" 
+          name="site" 
+          type="text" 
+          label ="Site web"
+          value={formData.site} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+      <FormHelperText>Date de création : </FormHelperText>
+        <TextField 
+          id="dateCreation" 
+          name="dateCreation" 
+          type="date" 
+          value={formData.dateCreation} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+        <TextField 
+          id="numNif" 
+          name="numNif" 
+          type="text" 
+          label = "Numéro NIF"
+          value={formData.numNif} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+        <TextField 
+          id="numStat" 
+          name="numStat" 
+          type="text" 
+          label="Numéro Statistique"
+          value={formData.numStat} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
     </div>
   );
 };
 
 const StepThree = ({ formData, setFormData, signUp }) => {
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === "statutLegal" || e.target.name === "logo" || e.target.name === "imageStat" || e.target.name === "imageNif") {
+      // Si c'est un champ de fichier
+      setFormData({ ...formData, [e.target.name]: e.target.files[0] });
+    } else {
+      // Si c'est un champ de texte
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   return (
     <div>
-      <Typography variant="h6">Étape 3</Typography>
-      {/* Vos champs pour l'étape 3 */}
-      {/* Exemple de champ : */}
-      {/* <input type="file" name="logo" onChange={handleChange} /> */}
-      <Button variant="contained" onClick={signUp}>
-        Enregistrer
-      </Button>
+      <FormControl fullWidth margin="normal">
+        <TextField 
+          type="text" 
+          name="statutLegal"
+          label = "Statut légal"
+          value={formData.statutLegal}
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+      
+        <FormHelperText>Logo</FormHelperText>
+        <TextField 
+          type="file" 
+          name="logo"
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+      <FormHelperText>Image statistique</FormHelperText>
+        <TextField 
+          type="file" 
+          name="imageStat"
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      <FormControl fullWidth margin="normal">
+        <FormHelperText>Image NIF</FormHelperText>
+        <TextField
+          type="file" 
+          name="imageNif"
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+      
     </div>
   );
 };
+
+
 
 export default RegistrationForm;
