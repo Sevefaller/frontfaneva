@@ -15,9 +15,9 @@ const Footer2 = () => {
     setShowMenu(!showMenu);
   };
   const navbarStyle = {
-    background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
-    color: "white",
-    
+    background: "#2F4F4F", // Couleur de fond bleue
+    color: "white", // Couleur du texte blanc
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", 
   };
 
   const dropStyle = {

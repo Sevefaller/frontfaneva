@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import {Input, Typography, Stepper, Step, StepLabel, Button, Paper, FormControl, InputLabel, TextField, MenuItem, FormHelperText } from '@mui/material';
 import Select from '@mui/material/Select';
 import axios from 'axios';
-import logo from './efianara.png';
+import logo from './inscription.jpg';
+
+import Navbar2 from "./Navbar2";
 import './Registre.css';
 const steps = ['Étape 1', 'Étape 2', 'Étape 3'];
+
+import Footer2 from "./Footer2";
 
 const RegistrationForm = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -68,8 +72,14 @@ const RegistrationForm = () => {
   };
 
   return (
-    <Paper elevation={3} style={{ padding: '20px', maxWidth: '400px', margin: '0 auto', marginTop: '40px' }}>
-      <img src={logo} alt="Logo" className="inscription-image" />
+   
+    <div style={{
+     
+     
+    }}> <Navbar2 />
+      
+      <Paper elevation={3} style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto', marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ flex: '0 0 60%', paddingRight: '20px' }}>
       <Typography variant="h6" className="inscription-title">Inscription</Typography>
       <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label) => (
@@ -78,12 +88,6 @@ const RegistrationForm = () => {
           </Step>
         ))}
       </Stepper>
-      <div>
-      
-      
-      
-      {/* ... rest du composant */}
-    </div>
       <div style={{ marginTop: '20px' }}>
         {activeStep === 0 && <StepOne formData={formData} setFormData={setFormData} />}
         {activeStep === 1 && <StepTwo formData={formData} setFormData={setFormData} handleFileChange={handleFileChange} />}
@@ -104,7 +108,20 @@ const RegistrationForm = () => {
           </Button>
         )}
       </div>
-    </Paper>
+    </div>
+    <div style={{ flex: '0 0 40%' }}>
+      <img src={logo} alt="Logo"  style={{ width: '100%', height: 'auto', marginTop:'120px' }} />
+    </div>
+  </Paper>
+  
+               
+            
+  </div>
+  
+    
+
+    
+    
   );
 };
 
@@ -267,12 +284,12 @@ const StepTwo = ({ formData, setFormData }) => {
 
 const StepThree = ({ formData, setFormData, signUp }) => {
   const handleChange = (e) => {
-    if (e.target.name === "statutLegal" || e.target.name === "logo" || e.target.name === "imageStat" || e.target.name === "imageNif") {
-      // Si c'est un champ de fichier
-      setFormData({ ...formData, [e.target.name]: e.target.files[0] });
-    } else {
+    if (e.target.name === "statutLegal") {
       // Si c'est un champ de texte
       setFormData({ ...formData, [e.target.name]: e.target.value });
+    } else {
+      // Si c'est un champ de fichier
+      setFormData({ ...formData, [e.target.name]: e.target.files[0] });
     }
   };
 
@@ -282,16 +299,15 @@ const StepThree = ({ formData, setFormData, signUp }) => {
         <TextField 
           type="text" 
           name="statutLegal"
-          label = "Statut légal"
+          label="Statut légal"
           value={formData.statutLegal}
           onChange={handleChange} 
           fullWidth 
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
-      
         <FormHelperText>Logo</FormHelperText>
-        <TextField 
+        <Input 
           type="file" 
           name="logo"
           onChange={handleChange} 
@@ -299,8 +315,8 @@ const StepThree = ({ formData, setFormData, signUp }) => {
         />
       </FormControl>
       <FormControl fullWidth margin="normal">
-      <FormHelperText>Image statistique</FormHelperText>
-        <TextField 
+        <FormHelperText>Image statistique</FormHelperText>
+        <Input 
           type="file" 
           name="imageStat"
           onChange={handleChange} 
@@ -309,17 +325,17 @@ const StepThree = ({ formData, setFormData, signUp }) => {
       </FormControl>
       <FormControl fullWidth margin="normal">
         <FormHelperText>Image NIF</FormHelperText>
-        <TextField
+        <Input 
           type="file" 
           name="imageNif"
           onChange={handleChange} 
           fullWidth 
         />
       </FormControl>
-      
     </div>
   );
 };
+
 
 
 

@@ -1,109 +1,103 @@
 import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Dropdown from "react-bootstrap/Dropdown";
+import logo2 from './efianara.png';
 import './Couverture.css';
-import { FaUserCircle, FaUserClock, FaEnvelope, FaSignInAlt } from "react-icons/fa";
-
+import { FaEnvelope, FaSignInAlt } from "react-icons/fa";
 
 const Navbar2 = () => {
   const [showMenu, setShowMenu] = useState(false);
 
-  const handleMenuClick = () => {
-    setShowMenu(!showMenu);
-  };
   const navbarStyle = {
-    background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
-    
-   
-    color: "white",
+    background: "#2F4F4F", // Couleur de fond bleue
+    color: "white", // Couleur du texte blanc
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Ombre légère
   };
 
   const dropStyle = {
-    boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)", 
-    color: "white",
-    borderRadius: "40px 40px 40px 0", // Augmentation de la taille des coins arrondis et bordure en demi-cercle
-    padding: "20px", // Ajout de l'espace intérieur pour augmenter la taille
-    fontSize: "18px", // Augmentation de la taille de la police
+     // Couleur de fond bleue foncée pour les Dropdowns
+    color: "white", // Couleur du texte blanc
+    borderRadius: "8px", // Coins arrondis
+  // Espace intérieur réduit
+    margin: "0px 0", // Marge autour du Dropdown
   };
-  
-  
-  
-  const linkstyle = {
-    color: "white",
-    boxShadow: "0 0 10px rgba(0, 0, 0, 0.3)", // Ombre de bordure avec une opacité de 0.3
-    transition: "color 0.3s ease-in-out, box-shadow 0.3s ease-in-out", // Ajout de la transition pour la couleur et l'ombre de bordure
+
+  const dropItemStyle = {
+    color: "black", // Couleur du texte blanc pour les éléments de Dropdown
+    "&:hover": {
+      background: "#1a5276", // Couleur de fond au survol
+    },
   };
-  
-  const logo = {
-    color: "white",
-     // Ajout de la transition pour la couleur et l'ombre de bordure
+
+  const linkStyle = {
+    color: "white", // Couleur du texte blanc
+    margin: "0 10px", // Marge autour des liens de navigation
   };
-  
+
+  const logoStyle = {
+    color: "white",
+    marginRight: "10px", // Marge à droite du logo
+  };
 
   return (
     <Navbar style={navbarStyle} expand="lg" sticky="top" className="Navbar">
-      <Navbar.Brand href="/" style={logo}>
+      <Navbar.Brand style={logoStyle}>
         <img
           alt="Logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
-          width="30"
+          src={logo2}
+          width="60"
           className="d-inline-block align-top"
         />
         E-Fianara
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-center">
-      
-      <Dropdown>
-      <Dropdown.Toggle style={dropStyle} id="dropdown-basic">
-        Organisation
-      </Dropdown.Toggle>
+        {/* Dropdowns */}
+        <Dropdown style={dropStyle}>
+          <Dropdown.Toggle variant="transparent" style={dropStyle}>
+            Organisation
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1" style={dropItemStyle}>ONG</Dropdown.Item>
+            <Dropdown.Item href="#/action-2" style={dropItemStyle}>Association</Dropdown.Item>
+            <Dropdown.Item href="#/action-3" style={dropItemStyle}>Entreprise</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
 
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">ONG</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Association</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Entreprise</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+        <Dropdown style={dropStyle}>
+          <Dropdown.Toggle variant="transparent" style={dropStyle}>
+            Organisation
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1" style={dropItemStyle}>ONG</Dropdown.Item>
+            <Dropdown.Item href="#/action-2" style={dropItemStyle}>Association</Dropdown.Item>
+            <Dropdown.Item href="#/action-3" style={dropItemStyle}>Entreprise</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
 
-    <Dropdown>
-      <Dropdown.Toggle style={dropStyle} id="dropdown-basic">
-        Secteur Activité
-      </Dropdown.Toggle>
+        <Dropdown style={dropStyle}>
+          <Dropdown.Toggle variant="transparent" id="dropdown-basic" style={dropStyle}>
+            Organisation
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1" style={dropItemStyle}>ONG</Dropdown.Item>
+            <Dropdown.Item href="#/action-2" style={dropItemStyle}>Association</Dropdown.Item>
+            <Dropdown.Item href="#/action-3" style={dropItemStyle}>Entreprise</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
 
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Santé</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Communication</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Service financier </Dropdown.Item>
-        <Dropdown.Item href="#/action-3">vente </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-          
+        {/* Autres Dropdowns... */}
 
-        <Dropdown>
-      <Dropdown.Toggle style={dropStyle} id="dropdown-basic">
-        Offres
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Stage</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Emploi</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-
-      </Navbar.Collapse>
-      <Navbar.Collapse className="justify-content-end">
-      <Nav>
-        <Nav.Link key="home" href="/inscription" style={linkstyle}>
-        <FaEnvelope style={{ marginRight: '5px' }} /> Inscription
-        </Nav.Link>
-        <Nav.Link key="about" href="/loginefianra" style={linkstyle}>
-        <FaSignInAlt style={{ marginRight: '5px' }} />Se connecter
-        </Nav.Link>
-       
-      </Nav>
+        {/* Liens de navigation */}
+        <Nav className="ml-auto">
+          <Nav.Link key="home" href="/registration" style={linkStyle}>
+            <FaEnvelope /> Inscription
+          </Nav.Link>
+          <Nav.Link key="about" href="/loginefianra" style={linkStyle}>
+            <FaSignInAlt /> Se connecter
+          </Nav.Link>
+        </Nav>
       </Navbar.Collapse>
     </Navbar>
   );
