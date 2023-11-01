@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Dropdown from "react-bootstrap/Dropdown";
 import './Footer.css';
+import logo2 from './efianara.png';
 import { FaUserCircle, FaUserClock, FaEnvelope, FaSignInAlt } from "react-icons/fa";
 import Footer from "components/Footer/Footer";
 
@@ -15,9 +16,9 @@ const Footer2 = () => {
     setShowMenu(!showMenu);
   };
   const navbarStyle = {
-    background: "linear-gradient(to right, #3498db, #8258FA, #8e44ad)",
-    color: "white",
-    
+    background: "#2F4F4F", // Couleur de fond bleue
+    color: "white", // Couleur du texte blanc
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", 
   };
 
   const dropStyle = {
@@ -48,7 +49,7 @@ const Footer2 = () => {
       <Navbar.Brand href="/" style={logo}>
         <img
           alt="Logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png"
+          src={logo2}
           width="30"
           className="d-inline-block align-top"
         />

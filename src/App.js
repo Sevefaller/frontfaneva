@@ -19,6 +19,7 @@ import Inscription from "components/Entity/Inscription";
 import Utilisateurlist from "components/Entity/Utilisateurlist";
 import UtilisateurDemande from "components/Entity/UtilisateurDemande";
 import Main from "./components/Entity/Main";
+import RegistrationForm from "components/Entity/RegistrationForm";
 
 
 //import Ajout_Lieux from "./components/Ajout_Lieux";
@@ -95,6 +96,10 @@ function App() {
 
           <Route path="/listeUtilisateur">
             <Utilisateurlist/>
+          </Route>
+
+          <Route path="/registration">
+            <RegistrationForm/>
           </Route>
 
 
