@@ -56,7 +56,7 @@ function Sidebar({ color, image, routes }) {
 <li>
         <Link to="/listeUtilisateur" className="nav-link">
           
-         <p>Lise des utilisateurs</p>
+         <p>Liste des utilisateurs</p>
         </Link>
       </li>
       <li>

@@ -103,7 +103,7 @@ function App() {
           </Route>
 
           <Route path="/">
-            <Login/>
+            <About/>
           </Route>
         </Switch>
       </BrowserRouter>

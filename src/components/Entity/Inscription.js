@@ -22,7 +22,7 @@ const Inscription = () => {
     const [province, setProvince] = useState("");
     const [region, setRegion] = useState("");
     const [adresse, setAdresse] = useState("");
-    const [codePostal, setCodePostal] = useState("");
+    const [codePostal, setCodePostal] = useState("1");
     const [email, setEmail] = useState("");
     const [site, setSite] = useState("");
     const [dateCreation, setDateCreation] = useState("");
@@ -59,7 +59,7 @@ const Inscription = () => {
           formData.append("province", province);
           formData.append("region", region);
           formData.append("adresse", adresse);
-          formData.append("code_postal", code_postal);
+          formData.append("code_postal", codePostal);
           formData.append("telephone_org", phone);
           formData.append("siteweb_org", site);
           formData.append("date_creation", dateCreation);
@@ -78,8 +78,6 @@ const Inscription = () => {
             // Gérez les erreurs ici
         }
     }
-
-
 
 
     return (
@@ -166,42 +164,41 @@ const Inscription = () => {
                                             <option value="6">Ihorombe</option>
                                             {region}
                                         </Form.Control>
-                                    </Form.Group>
-                                    {/* ... autres champs pour la première moitié du formulaire */}
+                    </Form.Group>
+                                 
                   </Col>
-                  
                   <Col md={6}>
                            <Form.Group controlId="formAdresse">
                                         <Form.Label>Adresse</Form.Label>
                                         <Form.Control type="text" value={adresse} onChange={(e) => setAdresse(e.target.value)} />
-                    </Form.Group>
+                            </Form.Group>
                      <Form.Group controlId="formCodePostal">
                                         <Form.Label>Code Postal</Form.Label>
                                         <Form.Control as="select" value={codePostal} onChange={(e) => setCodePostal(e.target.value)}>
                                             <option value="1">301</option>
                                             <option value="2">302</option>
                                             <option value="3">303</option>
-                                            <option value="4">303</option>
-                                            <option value="5">304</option>
-                                            <option value="6">305</option>
+                                            <option value="4">304</option>
+                                            <option value="5">305</option>
                                             <option value="6">306</option>
-                                            <option value="6">307</option>
-                                            <option value="6">308</option>
-                                            <option value="6">309</option>
-                                            <option value="6">310</option>
-                                            <option value="6">311</option>
-                                            <option value="6">312</option>
-                                            <option value="6">313</option>
-                                            <option value="6">314</option>
-                                            <option value="6">315</option>
-                                            <option value="6">316</option>
-                                            <option value="6">317</option>
-                                            <option value="6">318</option>
-                                            <option value="6">319</option>
-                                            <option value="6">320</option>
-                                            <option value="6">321</option>
-                                            <option value="6">322</option>
-                                            <option value="6">323</option>
+                                            <option value="7">307</option>
+                                            <option value="8">308</option>
+                                            <option value="9">309</option>
+                                            <option value="10">310</option>
+                                            <option value="11">311</option>
+                                            <option value="12">312</option>
+                                            <option value="13">313</option>
+                                            <option value="14">314</option>
+                                            <option value="15">315</option>
+                                            <option value="16">316</option>
+                                            <option value="17">317</option>
+                                            <option value="18">318</option>
+                                            <option value="19">319</option>
+                                            <option value="20">320</option>
+                                            <option value="21">321</option>
+                                            <option value="22">322</option>
+                                            <option value="23">323</option>
+                                        
                                             {codePostal}
                                         </Form.Control>
                                     </Form.Group>
@@ -236,7 +233,7 @@ const Inscription = () => {
                                     </Form.Group>
                                 </Col>
                             </Row>
-                            <Form.Group controlId="formImageNif" className="button-group">
+                            <Form.Group className="button-group">
                                 <Button variant="primary" onClick={signUp} >Enregistrer</Button>
                                 <Button href="about" >Retour</Button>
 

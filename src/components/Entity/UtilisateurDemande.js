@@ -30,7 +30,6 @@ import Col from "react-bootstrap/Col";
 import Modal from "react-bootstrap/Modal";
 import { Badge, Table, Tab, Tabs, Spinner, Toast, Button } from "react-bootstrap";
 import TextField from "@mui/material/TextField";
-//import Button from "@mui/material/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import {
@@ -43,6 +42,7 @@ import {
     FaEdit,
     FaExclamationCircle,
     FaCheckCircle,
+    FaTimesCircle,
     FaExclamationTriangle,
     FaCogs,
     FaMapMarker,
@@ -52,7 +52,6 @@ import {
 
 
 
-//import sidebarImage from "../assets/img/sidebar-3.jpg";
 
 
 function UtilisateurDemande() {
@@ -96,7 +95,7 @@ function UtilisateurDemande() {
     }, []);
 
     async function ListeUtilisateur() {
-        let result = await fetch("http://localhost:8000/api/listAccepte");
+        let result = await fetch("http://localhost:8000/api/list");
         result = await result.json();
         setData(result);
         setLoading(false);
@@ -116,12 +115,12 @@ function UtilisateurDemande() {
 
     async function Acceptdemande(id) {
         try {
-            let updateResult = await fetch("http://localhost:8000/api/validerUnCompte", {
+            let updateResult = await fetch(`http://localhost:8000/api/validerUnCompte/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ id: iddemande, status: "ok" }),
+              
             });
 
             if (updateResult.ok) {
@@ -140,12 +139,10 @@ function UtilisateurDemande() {
 
     async function Acceptrefus(id) {
         try {
-            let updateResult = await fetch("http://localhost:8000/api/rejeterUnCompte", {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ id: iddemande, status: "ok" }),
+            let updateResult = await fetch("http://localhost:8000/api/rejeterUnCompte/" + id, {
+                method: "DELETE",
+                
+              
             });
 
             if (updateResult.ok) {
@@ -185,8 +182,7 @@ function UtilisateurDemande() {
 
                                 <Button
                                     class="btn  btn-outline-danger"
-                                    onClick={() => Acceptdemande(id)}
-                                >
+                                    onClick={() => Acceptdemande(iddemande)} >
                                     Accepter
                                 </Button>
                             </Modal.Footer>
@@ -207,7 +203,7 @@ function UtilisateurDemande() {
 
                                 <Button
                                     class="btn  btn-outline-danger"
-                                    onClick={() => Acceptrefus(id)}
+                                    onClick={() => Acceptrefus(iddemande)}
                                 >
                                     Accepter
                                 </Button>
@@ -232,10 +228,29 @@ function UtilisateurDemande() {
                                     <Table striped bordered hover>
                                         <thead>
                                             <tr>
-                                                <th>Image</th>
-                                                <th>Nom</th>
+                                                <th>Image</th>                                   
+                                                <th>Rôle</th>
+                                                <th>Status</th>
+                                                <th>Type organisation</th>
+                                                <th>Nom de l'organisation</th>
+                                                <th>Secteur d'activité</th>
                                                 <th>Email</th>
-                                                <th>Catégorie</th>
+                                                <th>Téléphone</th>
+                                                <th>Site web ou réseaux sociaux</th>
+                                                <th>Date de création</th>
+                                                <th>Numéro NIF</th>
+                                                <th>Numéro STAT</th>
+                                                <th>Statut légal de l'organisation</th>
+                                                <th>Province</th>
+                                                <th>Région</th>
+                                                <th>Adresse</th>
+                                                <th>Code postal</th>
+                                                <th>Logo de l'organisation</th>
+                                                <th>Photo carte NIF</th>
+                                                <th>Photo carte STAT</th>
+                                                <th>Action</th>
+                                                
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -251,18 +266,61 @@ function UtilisateurDemande() {
                                                             }
                                                         />
                                                     </td>
+                                                    <td>{item.role}</td>
+                                                    <td>{item.status}</td>
+                                                    <td>{item.type_org}</td>
                                                     <td>{item.nom_org}</td>
+                                                    <td>{item.sect_act}</td>
                                                     <td>{item.email_org}</td>
-                                                    <td>{item.email_org}</td>
-
+                                                    <td>{item.telephone_org}</td>
+                                                    <td>{item.siteweb_org}</td>
+                                                    <td>{item.date_creation}</td>
+                                                    <td>{item.num_nif}</td>
+                                                    <td>{item.num_stat}</td>
+                                                    <td>{item.statut_legal_org}</td>
+                                                    <td>{item.province}</td>
+                                                    <td>{item.region}</td>
+                                                    <td>{item.adresse}</td>
+                                                    <td>{item.code_postal}</td>
+                                                     <td>
+                                                        {" "}
+                                                        <img
+                                                            style={{ width: 120, height: 80 }}
+                                                            src={
+                                                                "http://localhost:8000/" +
+                                                                item.logo_org
+                                                            }
+                                                        />
+                                                    </td>
+                                                         <td>
+                                                        {" "}
+                                                        <img
+                                                            style={{ width: 120, height: 80 }}
+                                                            src={
+                                                                "http://localhost:8000/" +
+                                                                item.imgStat
+                                                            }
+                                                        />
+                                                    </td>
+                                                      <td>
+                                                        {" "}
+                                                        <img
+                                                            style={{ width: 120, height: 80 }}
+                                                            src={
+                                                                "http://localhost:8000/" +
+                                                                item.imgStat
+                                                            }
+                                                        />
+                                                    </td>
                                                     <td>
-                                                        <Button variant="success" onClick={Passeutilisateuraccepte(item.id)}>
-                                                            <FaCheckCircle /> Accepter la demande
-                                                        </Button>
+                                                  <Button variant="success" onClick={() => Passeutilisateuraccepte(item.id)}>
+    <FaCheckCircle /> Accepter la demande
+</Button>
 
-                                                        <Button variant="danger" onClick={Passeutilisateursuprefus(item.id)}>
-                                                            <FaTimesCircle /> Refuser la demande
-                                                        </Button>
+<Button variant="danger" onClick={() => Passeutilisateursuprefus(item.id)}>
+    <FaTimesCircle /> Refuser la demande
+</Button>
+
                                                     </td>
                                                 </tr>
                                             ))}
