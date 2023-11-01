@@ -78,7 +78,7 @@ const RegistrationForm = () => {
      
     }}> <Navbar2 />
       
-      <Paper elevation={3} style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto', marginTop: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Paper elevation={3} style={{ padding: '20px', maxWidth: '1000px', margin: '0 auto', marginTop: '20px', marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '90vh' }}>
     <div style={{ flex: '0 0 60%', paddingRight: '20px' }}>
       <Typography variant="h6" className="inscription-title">Inscription</Typography>
       <Stepper activeStep={activeStep} alternativeLabel>
@@ -114,7 +114,8 @@ const RegistrationForm = () => {
     </div>
   </Paper>
   
-               
+  
+                <Footer2 />
             
   </div>
   
