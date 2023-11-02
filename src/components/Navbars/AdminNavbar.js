@@ -18,14 +18,14 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button, Image } from "react-bootstrap";
-import {FaEllipsisV, FaUser} from "react-icons/fa";
-import {NavLink} from "react-router-dom";
+import { FaEllipsisV, FaUser } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import routes from "routes.js";
 
 function Header() {
-  const user = JSON.parse(localStorage.getItem("user-info"));
+  const user = JSON.parse(localStorage.getItem("user"));
   const location = useLocation();
   const mobileSidebarToggle = (e) => {
     e.preventDefault();
@@ -39,11 +39,11 @@ function Header() {
     document.body.appendChild(node);
   };
   const history = useHistory();
-  
+
   function logout() {
     localStorage.clear();
     history.push("/about");
-   
+
   }
 
   const getBrandText = () => {
@@ -63,14 +63,14 @@ function Header() {
             className="d-lg-none btn-fill d-flex justify-content-center align-items-center rounded-circle p-2"
             onClick={mobileSidebarToggle}
           >
-            <FaEllipsisV/>
+            <FaEllipsisV />
           </Button>
           <Navbar.Brand
             href="#home"
             onClick={(e) => e.preventDefault()}
             className="mr-2"
           >
-            
+
           </Navbar.Brand>
         </div>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-2">
@@ -80,21 +80,21 @@ function Header() {
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="nav mr-auto" navbar>
-            
-           
+
+
             <Nav.Item>
               <Nav.Link
                 className="m-0 text-success text-center"
-                
-              
+
+
               >
                 <i className="nc-icon nc-zoom-split"></i>
-                <span className="d-lg-block" style={{fontSize:25}}><b>E fianara</b></span>
+                <span className="d-lg-block" style={{ fontSize: 25 }}><b>E fianara</b></span>
               </Nav.Link>
             </Nav.Item>
           </Nav>
           <Nav className="ml-auto" navbar>
-           
+
             <Dropdown as={Nav.Item}>
               <Dropdown.Toggle
                 aria-expanded={false}
@@ -105,37 +105,37 @@ function Header() {
                 variant="default"
                 className="m-0"
               >
-                <span className="no-icon"><FaUser/> Compte</span>
+                <span className="no-icon"><FaUser /> Compte</span>
               </Dropdown.Toggle>
               <Dropdown.Menu aria-labelledby="navbarDropdownMenuLink">
                 <Dropdown.Item
-                  
-                  
+
+
                 >
-                  <NavLink to="/versments"  className="m-0">
-                  Profil
+                  <NavLink to="/versments" className="m-0">
+                    Profil
                   </NavLink>
                 </Dropdown.Item>
                 <Dropdown.Item
-                  
+
                   onClick={logout}
                   className="m-0" >
                   Déconnection
                 </Dropdown.Item>
-               
+
               </Dropdown.Menu>
             </Dropdown>
             <Nav.Item>
-              
-                
-              {localStorage.getItem("user-info") ? (
-              <Nav.Link
-                className="m-0"
-                
-                
-              >
-                <span className="no-icon"> <Image src={"http://localhost:8000/" + user.image_utilisateur} style={{width:60, height:40}} roundedCircle /></span>
-              </Nav.Link> ) : null}
+
+
+              {localStorage.getItem("user") ? (
+                <Nav.Link
+                  className="m-0"
+
+
+                >
+                  <span className="no-icon"> <Image src={"http://localhost:8000/" + user.image_utilisateur} style={{ width: 60, height: 40 }} roundedCircle /></span>
+                </Nav.Link>) : null}
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

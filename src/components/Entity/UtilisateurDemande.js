@@ -261,7 +261,6 @@ function UtilisateurDemande() {
                                                         <img
                                                             style={{ width: 120, height: 80 }}
                                                             src={
-                                                                "http://localhost:8000/" +
                                                                 item.logo_org
                                                             }
                                                         />
@@ -287,7 +286,6 @@ function UtilisateurDemande() {
                                                         <img
                                                             style={{ width: 120, height: 80 }}
                                                             src={
-                                                                "http://localhost:8000/" +
                                                                 item.logo_org
                                                             }
                                                         />
@@ -297,7 +295,6 @@ function UtilisateurDemande() {
                                                         <img
                                                             style={{ width: 120, height: 80 }}
                                                             src={
-                                                                "http://localhost:8000/" +
                                                                 item.imgStat
                                                             }
                                                         />
@@ -307,7 +304,7 @@ function UtilisateurDemande() {
                                                         <img
                                                             style={{ width: 120, height: 80 }}
                                                             src={
-                                                                "http://localhost:8000/" +
+
                                                                 item.imgStat
                                                             }
                                                         />

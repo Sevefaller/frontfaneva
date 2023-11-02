@@ -24,7 +24,7 @@ import logo from "assets/img/reactlogo.png";
 
 function Sidebar({ color, image, routes }) {
   const location = useLocation();
-  const utilisateur = JSON.parse(localStorage.getItem("user-info"));
+  const utilisateur = JSON.parse(localStorage.getItem("user"));
   //const [user, setUser] = useState(utilisateur.type);
   const activeRoute = (routeName) => {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
@@ -52,22 +52,37 @@ function Sidebar({ color, image, routes }) {
 
       
 
-<>
-<li>
-        <Link to="/listeUtilisateur" className="nav-link">
-          
-         <p>Liste des utilisateurs</p>
-        </Link>
-      </li>
-      <li>
-        <Link to="/listeDemandeUtilisateur" className="nav-link">
-          
-         <p> Demande en attente</p>
-        </Link>
-      </li>
+  
 
-     
-</>
+{utilisateur && utilisateur.role === 1 ? (
+  <>
+    <li>
+      <Link to="/listeUtilisateur" className="nav-link">
+        <p>Liste des utilisateurs</p>
+      </Link>
+    </li>
+    <li>
+      <Link to="/listeDemandeUtilisateur" className="nav-link">
+        <p>Demande en attente</p>
+      </Link>
+    </li>
+  </>
+) : (
+  // Autres liens à afficher si le rôle est égal à 0 ou si l'utilisateur n'est pas défini
+  <>
+    <li>
+      <Link to="/autreLien1" className="nav-link">
+        <p>Autre Lien 1</p>
+      </Link>
+    </li>
+    <li>
+      <Link to="/autreLien2" className="nav-link">
+        <p>Autre Lien 2</p>
+      </Link>
+    </li>
+  </>
+)}
+
         
                
                
