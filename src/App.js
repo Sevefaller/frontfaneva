@@ -20,6 +20,7 @@ import Utilisateurlist from "components/Entity/Utilisateurlist";
 import UtilisateurDemande from "components/Entity/UtilisateurDemande";
 import Main from "./components/Entity/Main";
 import RegistrationForm from "components/Entity/RegistrationForm";
+import OffreList from "components/Entity/Offres/OffreList";
 
 
 //import Ajout_Lieux from "./components/Ajout_Lieux";
@@ -100,6 +101,10 @@ function App() {
 
           <Route path="/registration">
             <RegistrationForm/>
+          </Route>
+
+          <Route path="/offre">
+            <OffreList/>
           </Route>
 
 

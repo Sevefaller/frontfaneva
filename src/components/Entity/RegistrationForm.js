@@ -228,7 +228,7 @@ const StepTwo = ({ formData, setFormData }) => {
         <TextField 
           id="phone" 
           name="phone" 
-          type="number" 
+          type="text" 
           label = "Numéro téléphone"
           value={formData.phone} 
           onChange={handleChange} 
@@ -308,7 +308,7 @@ const StepThree = ({ formData, setFormData, signUp }) => {
       </FormControl>
       <FormControl fullWidth margin="normal">
         <FormHelperText>Logo</FormHelperText>
-        <Input 
+        <TextField 
           type="file" 
           name="logo"
           onChange={handleChange} 
@@ -317,7 +317,7 @@ const StepThree = ({ formData, setFormData, signUp }) => {
       </FormControl>
       <FormControl fullWidth margin="normal">
         <FormHelperText>Image statistique</FormHelperText>
-        <Input 
+        <TextField 
           type="file" 
           name="imageStat"
           onChange={handleChange} 
@@ -326,7 +326,7 @@ const StepThree = ({ formData, setFormData, signUp }) => {
       </FormControl>
       <FormControl fullWidth margin="normal">
         <FormHelperText>Image NIF</FormHelperText>
-        <Input 
+        <TextField
           type="file" 
           name="imageNif"
           onChange={handleChange} 
