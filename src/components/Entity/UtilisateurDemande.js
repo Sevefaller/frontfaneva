@@ -47,7 +47,7 @@ import {
     FaCogs,
     FaMapMarker,
     FaTrash,
-    FaEye, FaSave
+    FaEye, FaSave, FaTimesCircle
 } from "react-icons/fa";
 
 

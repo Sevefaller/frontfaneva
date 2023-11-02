@@ -15,7 +15,6 @@ const Login2 = () => {
       const formData = new FormData();
       formData.append("email_org", email);
       formData.append("password", password);
-      
       const response = await axios.post('http://127.0.0.1:8000/api/login', formData);
       console.log("Réponse de l'API :", response.data);
       // Traitez la réponse ici
