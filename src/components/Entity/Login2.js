@@ -39,7 +39,7 @@ const Login2 = () => {
           </div>
           <Form.Group controlId="formImageNif" className="button-group">
             <Button variant="primary" onClick={signIn}>Se connecter</Button>
-            <Button href="inscription">S'inscrire</Button>
+            <Button href="registration">S'inscrire</Button>
           </Form.Group>
         </form>
       </div>

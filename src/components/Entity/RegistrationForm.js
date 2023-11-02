@@ -6,7 +6,7 @@ import logo from './inscription.jpg';
 
 import Navbar2 from "./Navbar2";
 import './Registre.css';
-const steps = ['Étape 1', 'Étape 2', 'Étape 3'];
+const steps = ['Étape 1', 'Étape 2', 'Étape 3', 'Étape 4'];
 
 import Footer2 from "./Footer2";
 
@@ -19,6 +19,10 @@ const RegistrationForm = () => {
     nom: '',
     type: '1',
     sectAct: '1',
+    province: '1',
+    region: '1',
+    codePostal: '1',
+    adresse:'',
     phone: '',
     site: '',
     dateCreation: '',
@@ -48,11 +52,16 @@ const RegistrationForm = () => {
   const signUp = async () => {
     try {
       const formDataToSend = new FormData();
+
       formDataToSend.append("email_org", formData.email);
       formDataToSend.append("password", formData.password);
       formDataToSend.append("nom_org", formData.nom);
       formDataToSend.append("type_org", formData.type);
       formDataToSend.append("sect_act", formData.sectAct);
+      formDataToSend.append("province", formData.province);
+      formDataToSend.append("region", formData.region);
+      formDataToSend.append("code_postal", formData.codePostal);
+      formDataToSend.append("adresse", formData.adresse);
       formDataToSend.append("telephone_org", formData.phone);
       formDataToSend.append("siteweb_org", formData.site);
       formDataToSend.append("date_creation", formData.dateCreation);
@@ -91,18 +100,19 @@ const RegistrationForm = () => {
       <div style={{ marginTop: '20px' }}>
         {activeStep === 0 && <StepOne formData={formData} setFormData={setFormData} />}
         {activeStep === 1 && <StepTwo formData={formData} setFormData={setFormData} handleFileChange={handleFileChange} />}
-        {activeStep === 2 && <StepThree formData={formData} setFormData={setFormData} handleFileChange={handleFileChange} />}
+        {activeStep === 2 && <StepThree formData={formData} setFormData={setFormData}handleFileChange={handleFileChange}  />}
+        {activeStep === 3 && <StepFour formData={formData} setFormData={setFormData} handleFileChange={handleFileChange} />}
       </div>
       <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-between' }}>
         <Button variant="contained" disabled={activeStep === 0} onClick={handleBack}>
           Précédent
         </Button>
-        {activeStep === 2 && (
+        {activeStep === 3 && (
           <Button variant="contained" onClick={signUp}>
             Enregistrer
           </Button>
         )}
-        {activeStep !== 2 && (
+        {activeStep !== 3 && (
           <Button variant="contained" onClick={handleNext}>
             Suivant
           </Button>
@@ -283,7 +293,90 @@ const StepTwo = ({ formData, setFormData }) => {
   );
 };
 
-const StepThree = ({ formData, setFormData, signUp }) => {
+
+const StepThree = ({ formData, setFormData }) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <div>
+      
+      <FormControl fullWidth margin="normal">
+      <FormHelperText>Type d'entreprise</FormHelperText>
+        <Select
+          id="province"
+          label = "Province"
+          name="province"
+          value={formData.province}
+          
+          onChange={handleChange}
+          fullWidth
+        >
+         
+          <MenuItem value="1">Fianarantsoa</MenuItem>
+         
+        </Select>
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        <FormHelperText>Région</FormHelperText>
+        <Select
+          id="region"
+          name="region"
+          label = "Région"
+          value={formData.region}
+          onChange={handleChange}
+          fullWidth
+        >
+          <MenuItem value="1">Amoron'i Mania</MenuItem>
+          <MenuItem value="2">Haute Matsiatra</MenuItem>
+          <MenuItem value="3">Vatovavy</MenuItem>
+          <MenuItem value="4">Fitovinany</MenuItem>
+          <MenuItem value="5">Atsimo-Atsinanana</MenuItem>
+          <MenuItem value="6">Ihorombe</MenuItem>
+          {/* Ajoutez d'autres options ici */}
+        </Select>
+      </FormControl>
+
+
+       <FormControl fullWidth margin="normal">
+        <FormHelperText>Code Postal</FormHelperText>
+        <Select
+          id="codePostal"
+          name="codePostal"
+          label = "Code postal"
+          value={formData.codePostal}
+          onChange={handleChange}
+          fullWidth
+        >
+          <MenuItem value="1">Amoron'i Mania</MenuItem>
+          <MenuItem value="2">Haute Matsiatra</MenuItem>
+          <MenuItem value="3">Vatovavy</MenuItem>
+          <MenuItem value="4">Fitovinany</MenuItem>
+          <MenuItem value="5">Atsimo-Atsinanana</MenuItem>
+          <MenuItem value="6">Ihorombe</MenuItem>
+          {/* Ajoutez d'autres options ici */}
+        </Select>
+      </FormControl>
+
+      <FormControl fullWidth margin="normal">
+        
+        <TextField 
+          id="adresse" 
+          name="adresse" 
+          type="text" 
+          label = "Adresse"
+          value={formData.adresse} 
+          onChange={handleChange} 
+          fullWidth 
+        />
+      </FormControl>
+    </div>
+  );
+};
+
+const StepFour = ({ formData, setFormData, signUp }) => {
   const handleChange = (e) => {
     if (e.target.name === "statutLegal") {
       // Si c'est un champ de texte
