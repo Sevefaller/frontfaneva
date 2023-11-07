@@ -176,7 +176,7 @@ const StepOne = ({ formData, setFormData }) => {
           id="nom" 
           name="nom" 
           type="text" 
-          label = "Nom"
+          label = "Nom organisation"
           value={formData.nom} 
           onChange={handleChange} 
           fullWidth 

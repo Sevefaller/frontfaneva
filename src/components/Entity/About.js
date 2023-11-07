@@ -46,6 +46,7 @@ const divStyle = {
         try {
             // Replace with your Laravel API endpoint
             const result = await axios.get('http://localhost:8000/api/listAccepte');
+            console.log(result.data)
             setListAccepte(result.data);
         } catch (error) {
             console.error('There was an error geting the data!', error);
@@ -72,12 +73,16 @@ const divStyle = {
         }
     };
     
-    useEffect(() => {
-        getLists();
+      useEffect(() => {
+        if(!lists)
+            getLists();
+        if(!listAccepte)
         getListAccepte();
-        getListOffre();
-        getListSA();
-    }, []);
+        if(!listOffre)
+          getListOffre();
+        if(!listSA)
+          getListSA();
+    }, [listAccepte,lists,listOffre,listSA]);
 
 
     return (
@@ -85,19 +90,22 @@ const divStyle = {
             <Navbar2 />
             <TitreComponent />
             <Container fluid className="mt-2 mt-md-2 mb-4">               
-                <Row>
-                    <Col md={3}>
+                
+                {
+                    listAccepte && <Row>
+                    {
+                        listAccepte?.map((organisation, index) => {
+                    return <Col key={index} md={3}>
                         <Card>
                             <Card.Img
                                 variant="top"
-                                src={logo}
                                 style={{ height: '100px' }} // Spécifiez la hauteur personnalisée ici (par exemple, 150px)
                             />
                             {/* Autres contenus de la carte */}
                             <Card.Body>
-                                <Card.Title>Nom organisation</Card.Title>
+                                <Card.Title>{ organisation.nom_org }</Card.Title>
                                 <Card.Text>
-                                    Description
+                                    {organisation.siteweb_org}
                                 </Card.Text>
 
                                 <Card.Link href="#">Plus de detail </Card.Link>
@@ -105,142 +113,10 @@ const divStyle = {
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col md={3}>
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src={logo}
-                                style={{ height: '100px' }} // Spécifiez la hauteur personnalisée ici (par exemple, 150px)
-                            />
-                            {/* Autres contenus de la carte */}
-                            <Card.Body>
-                                <Card.Title>Nom organisation</Card.Title>
-                                <Card.Text>
-                                    Description
-                                </Card.Text>
-                                <Card.Link href="#">Plus de detail </Card.Link>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={3}>
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src={logo}
-                                style={{ height: '100px' }} // Spécifiez la hauteur personnalisée ici (par exemple, 150px)
-                            />
-                            {/* Autres contenus de la carte */}
-                            <Card.Body>
-                                <Card.Title>Nom organisation</Card.Title>
-                                <Card.Text>
-                                    Description
-                                </Card.Text>
-                                <Card.Link href="#">Plus de detail </Card.Link>
-
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={3}>
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src={logo}
-                                style={{ height: '100px' }} // Spécifiez la hauteur personnalisée ici (par exemple, 150px)
-                            />
-                            {/* Autres contenus de la carte */}
-                            <Card.Body>
-                                <Card.Title>Nom organisation</Card.Title>
-                                <Card.Text>
-                                    Description
-                                </Card.Text>
-
-                                <Card.Link href="#">Plus de detail </Card.Link>
-
-                            </Card.Body>
-                        </Card>
-                    </Col>
+                        })
+                    }
                 </Row>
-            </Container>
-            <Container fluid className="mt-4 mt-md-5 mb-4">
-                <Row>
-                    <Col md={3}>
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src={logo}
-                                style={{ height: '100px' }} // Spécifiez la hauteur personnalisée ici (par exemple, 150px)
-                            />
-                            {/* Autres contenus de la carte */}
-                            <Card.Body>
-                                <Card.Title>Nom organisation</Card.Title>
-                                <Card.Text>
-                                    Description
-                                </Card.Text>
-
-                                <Card.Link href="#">Plus de detail </Card.Link>
-
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={3}>
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src={logo}
-                                style={{ height: '100px' }} // Spécifiez la hauteur personnalisée ici (par exemple, 150px)
-                            />
-                            {/* Autres contenus de la carte */}
-                            <Card.Body>
-                                <Card.Title>Nom organisation</Card.Title>
-                                <Card.Text>
-                                    Description
-                                </Card.Text>
-                                <Card.Link href="#">Plus de detail </Card.Link>
-
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={3}>
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src={logo}
-                                style={{ height: '100px' }} // Spécifiez la hauteur personnalisée ici (par exemple, 150px)
-                            />
-                            {/* Autres contenus de la carte */}
-                            <Card.Body>
-                                <Card.Title>Nom organisation</Card.Title>
-                                <Card.Text>
-                                    Description
-                                </Card.Text>
-                                <Card.Link href="#">Plus de detail </Card.Link>
-
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={3}>
-                        <Card>
-                            <Card.Img
-                                variant="top"
-                                src={logo}
-                                style={{ height: '100px' }} // Spécifiez la hauteur personnalisée ici (par exemple, 150px)
-                            />
-                            {/* Autres contenus de la carte */}
-                            <Card.Body>
-                                <Card.Title>Nom organisation</Card.Title>
-                                <Card.Text>
-                                    Description
-                                </Card.Text>
-
-                                <Card.Link href="#">Plus de detail </Card.Link>
-
-                            </Card.Body>
-                        </Card>
-                    </Col>
-
-
-                </Row>
-
+                }
 
             </Container>
 

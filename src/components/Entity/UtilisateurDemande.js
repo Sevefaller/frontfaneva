@@ -228,15 +228,22 @@ function UtilisateurDemande() {
                                     <Table striped bordered hover>
                                         <thead>
                                             <tr>
-                                                <th>Image</th>                                   
+                                                    <th>Logo</th> 
+                                                    <th>Photo carte NIF</th>
+                                                     <th>Photo carte STAT</th>
+                                                    <th>Nom de l'organisation</th>   
+                                                     <th>Email</th>
+                                                    <th>Site web ou réseaux sociaux</th>
+                                                     <th>Action</th>
+                                                   
+                                                    
+                                               
                                                 <th>Rôle</th>
                                                 <th>Status</th>
-                                                <th>Type organisation</th>
-                                                <th>Nom de l'organisation</th>
-                                                <th>Secteur d'activité</th>
-                                                <th>Email</th>
+                                                <th>Type organisation</th>                                       
+                                                <th>Secteur d'activité</th>                                               
                                                 <th>Téléphone</th>
-                                                <th>Site web ou réseaux sociaux</th>
+                                                
                                                 <th>Date de création</th>
                                                 <th>Numéro NIF</th>
                                                 <th>Numéro STAT</th>
@@ -246,9 +253,7 @@ function UtilisateurDemande() {
                                                 <th>Adresse</th>
                                                 <th>Code postal</th>
                                                 <th>Logo de l'organisation</th>
-                                                <th>Photo carte NIF</th>
-                                                <th>Photo carte STAT</th>
-                                                <th>Action</th>
+                                               
                                                 
                                                 
                                             </tr>
@@ -259,20 +264,54 @@ function UtilisateurDemande() {
                                                     <td>
                                                         {" "}
                                                         <img
-                                                            style={{ width: 120, height: 80 }}
+                                                            style={{ width: 300, height: 300 }}
                                                             src={
                                                                 item.logo_org
                                                             }
                                                         />
                                                     </td>
+                                                    
+                                                      <td>
+                                                        {" "}
+                                                        <img
+                                                            style={{ width: 300, height: 150 }}
+                                                            src={
+
+                                                                item.imgNif
+                                                            }
+                                                        />
+                                                    </td>
+
+                                                      <td>
+                                                        {" "}
+                                                        <img
+                                                            style={{ width: 300, height: 150 }}
+                                                            src={
+                                                                item.imgStat
+                                                            }
+                                                        />
+                                                    </td>
+                                                    <td>{item.nom_org}</td>
+                                                    <td>{item.email_org}</td>
+                                                    <td>{item.siteweb_org}</td>
+                                                     <td >
+                                                  <Button variant="success" onClick={() => Passeutilisateuraccepte(item.id)}>
+    <FaCheckCircle /> Accepter la demande
+</Button>
+
+<Button variant="danger" onClick={() => Passeutilisateursuprefus(item.id)}>
+    <FaTimesCircle /> Refuser la demande
+</Button>
+
+                                                    </td>
                                                     <td>{item.role}</td>
                                                     <td>{item.status}</td>
                                                     <td>{item.type_org}</td>
-                                                    <td>{item.nom_org}</td>
+                                                  
                                                     <td>{item.sect_act}</td>
-                                                    <td>{item.email_org}</td>
+                                                  
                                                     <td>{item.telephone_org}</td>
-                                                    <td>{item.siteweb_org}</td>
+                                                    
                                                     <td>{item.date_creation}</td>
                                                     <td>{item.num_nif}</td>
                                                     <td>{item.num_stat}</td>
@@ -290,35 +329,9 @@ function UtilisateurDemande() {
                                                             }
                                                         />
                                                     </td>
-                                                         <td>
-                                                        {" "}
-                                                        <img
-                                                            style={{ width: 120, height: 80 }}
-                                                            src={
-                                                                item.imgStat
-                                                            }
-                                                        />
-                                                    </td>
-                                                      <td>
-                                                        {" "}
-                                                        <img
-                                                            style={{ width: 120, height: 80 }}
-                                                            src={
-
-                                                                item.imgStat
-                                                            }
-                                                        />
-                                                    </td>
-                                                    <td>
-                                                  <Button variant="success" onClick={() => Passeutilisateuraccepte(item.id)}>
-    <FaCheckCircle /> Accepter la demande
-</Button>
-
-<Button variant="danger" onClick={() => Passeutilisateursuprefus(item.id)}>
-    <FaTimesCircle /> Refuser la demande
-</Button>
-
-                                                    </td>
+                                                       
+                                                    
+                                                   
                                                 </tr>
                                             ))}
                                         </tbody>

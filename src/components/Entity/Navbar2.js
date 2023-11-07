@@ -49,7 +49,6 @@ const Navbar2 = () => {
           width="60"
           className="d-inline-block align-top"
         />
-        E-Fianara
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-center">
@@ -67,7 +66,17 @@ const Navbar2 = () => {
 
         <Dropdown style={dropStyle}>
           <Dropdown.Toggle variant="transparent" style={dropStyle}>
-            Organisation
+            Offre
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item href="#/action-1" style={dropItemStyle}>Stage</Dropdown.Item>
+            <Dropdown.Item href="#/action-2" style={dropItemStyle}>Emploi</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        <Dropdown style={dropStyle}>
+          <Dropdown.Toggle variant="transparent" id="dropdown-basic" style={dropStyle}>
+            Secteur activité
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item href="#/action-1" style={dropItemStyle}>ONG</Dropdown.Item>
@@ -76,9 +85,9 @@ const Navbar2 = () => {
           </Dropdown.Menu>
         </Dropdown>
 
-        <Dropdown style={dropStyle}>
+          <Dropdown style={dropStyle}>
           <Dropdown.Toggle variant="transparent" id="dropdown-basic" style={dropStyle}>
-            Organisation
+            Secteur activité
           </Dropdown.Toggle>
           <Dropdown.Menu>
             <Dropdown.Item href="#/action-1" style={dropItemStyle}>ONG</Dropdown.Item>
