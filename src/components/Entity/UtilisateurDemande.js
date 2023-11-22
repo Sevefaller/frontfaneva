@@ -243,7 +243,7 @@ function UtilisateurDemande() {
                                                 <th>Type organisation</th>                                       
                                                 <th>Secteur d'activité</th>                                               
                                                 <th>Téléphone</th>
-                                                
+                    
                                                 <th>Date de création</th>
                                                 <th>Numéro NIF</th>
                                                 <th>Numéro STAT</th>

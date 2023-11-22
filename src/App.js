@@ -2,6 +2,17 @@ import "./App.css";
 import { Button } from "react-bootstrap";
 import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
 
+
+import Login2 from "components/Entity/Login2";
+import RegistrationForm from "components/Entity/RegistrationForm";
+import OrganisationListe from "components/Entity/OrganisationListe";
+import EditeurListe from "components/Entity/EditeurListe";
+import CandidatureListe from "components/Entity/CandidatureListe";
+import Inscription from "components/Entity/Inscription";
+import Utilisateurlist from "components/Entity/Utilisateurlist";
+import UtilisateurDemande from "components/Entity/UtilisateurDemande";
+import Main from "./components/Entity/Main";
+import OffreList from "components/Entity/Offres/OffreList";
 import Clients from "./components/Entity/Clients";
 import Register from "./components/Entity/Register";
 import Login from "./components/Entity/Login";
@@ -14,14 +25,6 @@ import Pagevide from "components/Entity/Pagevide";
 import Historiqueclient from "./components/Entity/Historiqueclient";
 import Historiqueversement from "components/Entity/Historiqueversement";
 import Historiqueretrait from "./components/Entity/Historiqueretrait";
-import Login2 from "components/Entity/Login2";
-import Inscription from "components/Entity/Inscription";
-import Utilisateurlist from "components/Entity/Utilisateurlist";
-import UtilisateurDemande from "components/Entity/UtilisateurDemande";
-import Main from "./components/Entity/Main";
-import RegistrationForm from "components/Entity/RegistrationForm";
-import OffreList from "components/Entity/Offres/OffreList";
-
 
 //import Ajout_Lieux from "./components/Ajout_Lieux";
 //import Home from "./components/Home";
@@ -51,7 +54,23 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Switch>
-          <Route path="/clients">
+          <Route path="/">
+            <Login2/>
+          </Route>
+          <Route path="/registration">
+            <RegistrationForm/>
+          </Route>
+          <Route path="/OrganisationListe">
+            <OrganisationListe/>
+          </Route>
+          <Route path="/EditeurListe">
+            <EditeurListe/>
+          </Route>
+           <Route path="/CandidatureListe">
+            <CandidatureListe/>
+          </Route>
+      
+          {/* <Route path="/clients">
             <Clients/>
           </Route>
           <Route path="/versements">
@@ -59,9 +78,9 @@ function App() {
           </Route>
           <Route path="/retraits">
             <Retrait/>
-          </Route>
+          </Route> */}
 
-          <Route path="/historiqueclient">
+          {/* <Route path="/historiqueclient">
             <Historiqueclient/>
           </Route>
           <Route path="/historiqueversement">
@@ -73,48 +92,40 @@ function App() {
 
           <Route path="/couverture">
             <Couverture/>
-          </Route>
+          </Route> */}
 
-          <Route path="/about">
+          {/* <Route path="/about">
             <About/>
-          </Route>
+          </Route> */}
 
-          <Route path="/pagevide">
+          {/* <Route path="/pagevide">
             <Pagevide/>
-          </Route>
-
-          <Route path="/loginefianra">
-            <Login2/>
-          </Route>
-
-          <Route path="/Inscription">
+          </Route> */}
+          {/* <Route path="/Inscription">
             <Inscription/>
-          </Route>
+          </Route> */}
 
-          <Route path="/pagevideadmin">
+          {/* <Route path="/pagevideadmin">
             <Main/>
-          </Route>
-
+          </Route> */}
+{/* 
           <Route path="/listeUtilisateur">
             <Utilisateurlist/>
-          </Route>
+          </Route> */}
 
-          <Route path="/registration">
-            <RegistrationForm/>
-          </Route>
-
-          <Route path="/offre">
+       
+          {/* <Route path="/offre">
             <OffreList/>
-          </Route>
+          </Route> */}
 
 
-          <Route path="/listeDemandeUtilisateur">
+          {/* <Route path="/listeDemandeUtilisateur">
             <UtilisateurDemande/>
-          </Route>
+          </Route> */}
 
-          <Route path="/">
+          {/* <Route path="/">
             <About/>
-          </Route>
+          </Route> */}
         </Switch>
       </BrowserRouter>
       

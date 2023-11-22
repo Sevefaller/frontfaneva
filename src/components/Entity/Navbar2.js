@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Dropdown from "react-bootstrap/Dropdown";
-import logo2 from './efianara.png';
+//import logo2 from './efianara.png';
 import './Couverture.css';
 import { FaEnvelope, FaSignInAlt } from "react-icons/fa";
 
@@ -52,8 +52,19 @@ const Navbar2 = () => {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse className="justify-content-center">
+             <Nav className="ml-auto">
+          <Nav.Link key="home" href="/registration" style={linkStyle}>
+            <FaEnvelope /> Inscription
+          </Nav.Link>
+          <Nav.Link key="about" href="/loginefianra" style={linkStyle}>
+            <FaSignInAlt /> Se connecter
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+     );
         {/* Dropdowns */}
-        <Dropdown style={dropStyle}>
+        {/* <Dropdown style={dropStyle}>
           <Dropdown.Toggle variant="transparent" style={dropStyle}>
             Organisation
           </Dropdown.Toggle>
@@ -94,22 +105,13 @@ const Navbar2 = () => {
             <Dropdown.Item href="#/action-2" style={dropItemStyle}>Association</Dropdown.Item>
             <Dropdown.Item href="#/action-3" style={dropItemStyle}>Entreprise</Dropdown.Item>
           </Dropdown.Menu>
-        </Dropdown>
+        </Dropdown> */}
 
         {/* Autres Dropdowns... */}
 
         {/* Liens de navigation */}
-        <Nav className="ml-auto">
-          <Nav.Link key="home" href="/registration" style={linkStyle}>
-            <FaEnvelope /> Inscription
-          </Nav.Link>
-          <Nav.Link key="about" href="/loginefianra" style={linkStyle}>
-            <FaSignInAlt /> Se connecter
-          </Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  );
+   
+ 
 };
 
 export default Navbar2;

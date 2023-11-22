@@ -225,4 +225,4 @@ function Utilisateurlist() {
   );
 }
 
-export default Utilisateurlist;
+export default Organisationliste;

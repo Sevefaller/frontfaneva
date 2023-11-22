@@ -15,7 +15,7 @@ const Login2 = () => {
   async function signIn() {
     try {
       const formData = new FormData();
-      formData.append("email_org", email);
+      formData.append("email", email);
       formData.append("password", password);
       const response = await axios.post('http://127.0.0.1:8000/api/login', formData);
       const result = response.data;
@@ -27,15 +27,14 @@ const Login2 = () => {
         localStorage.setItem('user', JSON.stringify(result.user));
         
 
-         if (result.user.role === 1) {
-          // Si le rôle de l'utilisateur est égal à 1, redirigez vers un lien spécifique
-          history.push('/listeDemandeUtilisateur'); // Remplacez '/lienRole1' par l'URL vers laquelle vous souhaitez rediriger l'utilisateur avec le rôle 1
-        } else if (result.user.role === 0) {
-          // Si le rôle de l'utilisateur est égal à 0, redirigez vers un autre lien spécifique
-          history.push('/lienRole0'); // Remplacez '/lienRole0' par l'URL vers laquelle vous souhaitez rediriger l'utilisateur avec le rôle 0
+            if (result.user.role === 777) {
+          history.push('/OrganisationListe');
+        } else if (result.user.role === 756) {
+          history.push('/EditeurListe');
+        } else if (result.user.role === 755) {
+          history.push('/CandidatureListe');
         } else {
-          // Autres rôles non gérés ici, redirigez vers un lien par défaut
-          history.push('/lienParDefaut'); // Remplacez '/lienParDefaut' par l'URL vers laquelle vous souhaitez rediriger l'utilisateur pour d'autres rôles non spécifiés
+          history.push('/lienParDefaut');
         }
       } else {
         setError("Votre compte n'est pas encore validé");

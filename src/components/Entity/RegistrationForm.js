@@ -188,7 +188,7 @@ const StepOne = ({ formData, setFormData }) => {
 
 
       <FormControl fullWidth margin="normal">
-      <FormHelperText>Type d'entreprise</FormHelperText>
+      <FormHelperText>Type d'organisation</FormHelperText>
         <Select
           id="type"
           label = "Type organisation"
@@ -210,7 +210,7 @@ const StepOne = ({ formData, setFormData }) => {
         <Select
           id="sectAct"
           name="sectAct"
-          label = "Type organisation"
+          label = "Secteur activité"
           value={formData.sectAct}
           onChange={handleChange}
           fullWidth
