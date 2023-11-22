@@ -1,30 +1,29 @@
-import "./App.css";
-import { Button } from "react-bootstrap";
-import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
+import './App.css';
+import { Button } from 'react-bootstrap';
+import { BrowserRouter, Route, Switch, Router } from 'react-router-dom';
 
-
-import Login2 from "components/Entity/Login2";
-import RegistrationForm from "components/Entity/RegistrationForm";
-import OrganisationListe from "components/Entity/OrganisationListe";
-import EditeurListe from "components/Entity/EditeurListe";
-import CandidatureListe from "components/Entity/CandidatureListe";
-import Inscription from "components/Entity/Inscription";
-import Utilisateurlist from "components/Entity/Utilisateurlist";
-import UtilisateurDemande from "components/Entity/UtilisateurDemande";
-import Main from "./components/Entity/Main";
-import OffreList from "components/Entity/Offres/OffreList";
-import Clients from "./components/Entity/Clients";
-import Register from "./components/Entity/Register";
-import Login from "./components/Entity/Login";
-import Versements from "./components/Entity/Versements";
-import Protection from "./components/Entity/Protected";
-import Retrait from "components/Entity/Retrait";
-import Couverture from "components/Entity/Couverture";
-import About from "components/Entity/About";
-import Pagevide from "components/Entity/Pagevide";
-import Historiqueclient from "./components/Entity/Historiqueclient";
-import Historiqueversement from "components/Entity/Historiqueversement";
-import Historiqueretrait from "./components/Entity/Historiqueretrait";
+import RegistrationForm from 'components/Entity/RegistrationForm';
+import OrganisationListe from 'components/Entity/OrganisationListe';
+import EditeurListe from 'components/Entity/EditeurListe';
+import CandidatureListe from 'components/Entity/CandidatureListe';
+import Inscription from 'components/Entity/Inscription';
+import Utilisateurlist from 'components/Entity/Utilisateurlist';
+import UtilisateurDemande from 'components/Entity/UtilisateurDemande';
+import Main from './components/Entity/Main';
+import OffreList from 'components/Entity/Offres/OffreList';
+import Clients from './components/Entity/Clients';
+import Register from './components/Entity/Register';
+import Versements from './components/Entity/Versements';
+import Protection from './components/Entity/Protected';
+import Retrait from 'components/Entity/Retrait';
+import Couverture from 'components/Entity/Couverture';
+import About from 'components/Entity/About';
+import Pagevide from 'components/Entity/Pagevide';
+import Historiqueclient from './components/Entity/Historiqueclient';
+import Historiqueversement from 'components/Entity/Historiqueversement';
+import Historiqueretrait from './components/Entity/Historiqueretrait';
+import { Login2 } from 'components/Entity/Login2';
+import { AuthService } from 'services/auth.service';
 
 //import Ajout_Lieux from "./components/Ajout_Lieux";
 //import Home from "./components/Home";
@@ -50,27 +49,35 @@ import Espece from "./components/Espece";
 import Productionhebdo from "./components/Productionhebdo";*/
 
 function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Switch>
-          <Route path="/">
-            <Login2/>
-          </Route>
-          <Route path="/registration">
-            <RegistrationForm/>
-          </Route>
-          <Route path="/OrganisationListe">
-            <OrganisationListe/>
-          </Route>
-          <Route path="/EditeurListe">
-            <EditeurListe/>
-          </Route>
-           <Route path="/CandidatureListe">
+	const user = AuthService().user();
+	return (
+		<div className='App'>
+			<BrowserRouter>
+				<Switch>
+					{/* {!user && <Login2 />}
+
+					{user && (
+						<Route path='/'>
+							{user.role === 777 && <OrganisationListe />}
+							{user.role === 756 && <EditeurListe />}
+							{user.role === 755 && <CandidatureListe />}
+						</Route>
+					)} */}
+
+					<Route path='/registration'>
+						<RegistrationForm />
+					</Route>
+					<Route path='/OrganisationListe'>
+						<OrganisationListe />
+					</Route>
+					{/* <Route path='/EditeurListe'>
+						<EditeurListe />
+					</Route> */}
+					{/* <Route path="/CandidatureListe">
             <CandidatureListe/>
-          </Route>
-      
-          {/* <Route path="/clients">
+          </Route> */}
+
+					{/* <Route path="/clients">
             <Clients/>
           </Route>
           <Route path="/versements">
@@ -80,7 +87,7 @@ function App() {
             <Retrait/>
           </Route> */}
 
-          {/* <Route path="/historiqueclient">
+					{/* <Route path="/historiqueclient">
             <Historiqueclient/>
           </Route>
           <Route path="/historiqueversement">
@@ -94,45 +101,40 @@ function App() {
             <Couverture/>
           </Route> */}
 
-          {/* <Route path="/about">
+					{/* <Route path="/about">
             <About/>
           </Route> */}
 
-          {/* <Route path="/pagevide">
+					{/* <Route path="/pagevide">
             <Pagevide/>
           </Route> */}
-          {/* <Route path="/Inscription">
+					{/* <Route path="/Inscription">
             <Inscription/>
           </Route> */}
 
-          {/* <Route path="/pagevideadmin">
+					{/* <Route path="/pagevideadmin">
             <Main/>
           </Route> */}
-{/* 
+					{/*
           <Route path="/listeUtilisateur">
             <Utilisateurlist/>
           </Route> */}
 
-       
-          {/* <Route path="/offre">
+					{/* <Route path="/offre">
             <OffreList/>
           </Route> */}
 
-
-          {/* <Route path="/listeDemandeUtilisateur">
+					{/* <Route path="/listeDemandeUtilisateur">
             <UtilisateurDemande/>
           </Route> */}
 
-          {/* <Route path="/">
+					{/* <Route path="/">
             <About/>
           </Route> */}
-        </Switch>
-      </BrowserRouter>
-      
-    </div>
-    
-  );
+				</Switch>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
-
