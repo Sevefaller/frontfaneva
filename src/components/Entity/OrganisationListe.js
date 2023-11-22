@@ -58,7 +58,7 @@ import Sidebar from "../Sidebar/Sidebar";
 //import sidebarImage from "../assets/img/sidebar-3.jpg";
 
 
-function Utilisateurlist() {
+function OrganisationListe() {
   const history = useHistory();
   
   
@@ -225,4 +225,4 @@ function Utilisateurlist() {
   );
 }
 
-export default Organisationliste;
+export default OrganisationListe;
